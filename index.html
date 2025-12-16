@@ -1,75 +1,92 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Li Yue</title>
+    <title>Li Yue - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* --- CSS 样式部分 --- */
+        /* --- Optimized CSS Styles (Focus on Boldness and Cleanliness) --- */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Roboto', 'Arial', sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9; /* 浅灰色背景 */
+            background-color: #eef1f5; 
             color: #333;
         }
         .container {
-            width: 80%;
+            width: 90%;
+            max-width: 1200px;
             margin: auto;
-            overflow: hidden;
             padding: 20px 0;
         }
         header {
-            background: #2a6496; /* 深蓝色头部 */
+            background: #2a6496; 
             color: #ffffff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #77aaff 3px solid;
+            padding: 40px 0 20px 0;
             text-align: center;
         }
         header h1 {
             margin: 0;
-            font-size: 2.2em;
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            font-weight: 700; /* 加粗 */
+        }
+        header p {
+            font-size: 1.1em;
+            opacity: 0.8;
+            font-weight: 700; /* 加粗 */
         }
         section {
-            padding: 20px;
-            margin-bottom: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
             background: #ffffff;
-            border-radius: 8px; /* 圆角 */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
-        /* 个人信息样式 */
-        #profile h2 {
-            border-bottom: 2px solid #ccc;
+        /* Section Title Style */
+        section h2 {
+            border-bottom: 3px solid #77aaff;
             padding-bottom: 10px;
             color: #2a6496;
+            margin-top: 0;
+            font-weight: 700; /* 确保 H2 标题加粗 */
+        }
+        /* Profile and Contact Info */
+        .contact-info {
+            padding: 0;
+            list-style: none;
+            margin-top: 15px;
         }
         .contact-info li {
-            list-style: none;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            font-size: 1em;
         }
-        /* 项目列表样式 */
+        /* Project List Styles */
         .project-item {
-            border: 1px solid #ddd;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-            transition: box-shadow 0.3s ease;
-        }
-        .project-item:hover {
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            border-left: 5px solid #4CAF50; 
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9; 
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
         }
         .project-item h3 {
-            color: #4CAF50; /* 绿色标题 */
+            color: #4CAF50;
             margin-top: 0;
+            font-size: 1.4em;
+            font-weight: 700; /* 确保项目 H3 标题加粗 */
+        }
+        .project-item ul {
+            list-style-type: disc; /* 替换自定义图标为传统圆点 */
+            padding-left: 20px;
+        }
+        .project-item li {
+            margin-bottom: 5px;
         }
         .project-item a {
-            color: #2a6496;
-            text-decoration: none;
-        }
-        .project-item a:hover {
-            text-decoration: underline;
+            font-weight: 700;
         }
         footer {
             padding: 20px;
@@ -77,6 +94,13 @@
             color: #ffffff;
             background-color: #333;
             text-align: center;
+            font-size: 0.9em;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
         }
     </style>
 </head>
@@ -85,51 +109,63 @@
     <header>
         <div class="container">
             <h1>Li Yue</h1>
-            <p>Software Dev</p>
+            <p>Software Developer | AI/ML Engineer</p>
         </div>
     </header>
 
     <div class="container">
         
         <section id="profile">
+            <h2>About Me</h2>
+            <p>
+                I am an engineer focused on **Software Development** and **Artificial Intelligence/Machine Learning**.
+                I have practical project experience in **Federated Learning** and **Intelligent Search Systems**.
+                I am passionate about exploring emerging technologies and transforming complex data and models into efficient, usable systems.
+            </p>
+            
+            <h2>Contact Information</h2>
             <ul class="contact-info">
-                <li>**E-mail:** 3483548962@qq.com</li>
-                <li>**Phone Num:** (+86) 180-2881-1532</li>
-                <li>**GitHub:** <a href="https://github.com/lyanchor" target="_blank">lyanchor.github,io</a></li>
+                <li>**Email:** 3483548962@qq.com</li>
+                <li>**Phone:** (+86) 180-2881-1532</li>
+                <li>**GitHub:** <a href="https://github.com/lyanchor" target="_blank">lyanchor</a> (lyanchor.github.io)</li>
             </ul>
         </section>
 
         <section id="projects">
-            <h2>projects</h2>
+            <h2>Key Projects</h2>
 
             <div class="project-item">
-                <h3>avfl</h3>
+                <h3>avfl: Federated Learning System based on OpenPCDet and Flower</h3>
                 <p>
-                    **Introduction:** A federated learning system based on OpenPCDet and Flower**。
+                    **Introduction:** A Federated Learning system designed for **3D Point Cloud Object Detection** for autonomous driving. It aims to improve model performance across multiple organizations while preserving data privacy.
                 </p>
                 <ul>
-                    <li>**Features:** FeAvg, DP</li>
-                    <li>**Model:** Pointpillars</li>
-                    <li>**Tech stacks:** OpenPCDet, Flower</li>
-                    <li>**Link:** <a href="#" target="_blank">查看演示</a> | <a href="#" target="_blank">GitHub 仓库</a></li>
+                    <li>**Features:** Implements **FedAvg** aggregation algorithm and **Differential Privacy (DP)** mechanism.</li>
+                    <li>**Model:** PointPillars (an efficient 3D detection model).</li>
+                    <li>**Tech Stacks:** **OpenPCDet**, **Flower** (Federated Learning framework), Python.</li>
+                    <li>**Link:** <a href="#" target="_blank">View Demo</a> | <a href="#" target="_blank">GitHub Repository</a></li>
                 </ul>
             </div>
 
             <div class="project-item">
-                <h3>Geniuso</h3>
+                <h3>Geniuso: Intelligent Search and Q&A System</h3>
                 <p>
-                    **Introduction:** An intelligent search engine
+                    **Introduction:** An intelligent search platform integrating Large Language Models (LLM) and Retrieval-Augmented Generation (RAG) technology to provide accurate and context-aware answers.
                 </p>
                 <ul>
-                    <li>**Features:** RAG, Agents</li>
-                    <li>**Tech stacks:** LangChain, Chroma</li>
-                    <li>**Link:** <a href="#" target="_blank">查看演示</a> | <a href="#" target="_blank">GitHub 仓库</a></li>
+                    <li>**Core Features:** **RAG** (Retrieval-Augmented Generation) for improved accuracy; integrated **Agents** for complex task decomposition.</li>
+                    <li>**Tech Stacks:** **LangChain** (LLM application framework), **Chroma** (Vector Database).</li>
+                    <li>**Link:** <a href="#" target="_blank">View Demo</a> | <a href="#" target="_blank">GitHub Repository</a></li>
                 </ul>
             </div>
             
-            </section>
+        </section>
 
     </div>
+
+    <footer>
+        <p>Copyright &copy; 2025 Li Yue. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
