@@ -1,171 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Li Yue - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* --- Optimized CSS Styles (Focus on Boldness and Cleanliness) --- */
-        body {
-            font-family: 'Roboto', 'Arial', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #eef1f5; 
-            color: #333;
-        }
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px 0;
-        }
-        header {
-            background: #2a6496; 
-            color: #ffffff;
-            padding: 40px 0 20px 0;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            letter-spacing: 2px;
-            font-weight: 700; /* 加粗 */
-        }
-        header p {
-            font-size: 1.1em;
-            opacity: 0.8;
-            font-weight: 700; /* 加粗 */
-        }
-        section {
-            padding: 30px;
-            margin-bottom: 25px;
-            background: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        }
-        /* Section Title Style */
-        section h2 {
-            border-bottom: 3px solid #77aaff;
-            padding-bottom: 10px;
-            color: #2a6496;
-            margin-top: 0;
-            font-weight: 700; /* 确保 H2 标题加粗 */
-        }
-        /* Profile and Contact Info */
-        .contact-info {
-            padding: 0;
-            list-style: none;
-            margin-top: 15px;
-        }
-        .contact-info li {
-            margin-bottom: 8px;
-            font-size: 1em;
-        }
-        /* Project List Styles */
-        .project-item {
-            border-left: 5px solid #4CAF50; 
-            padding: 20px;
-            margin-bottom: 20px;
-            background-color: #f9f9f9; 
-            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
-        }
-        .project-item h3 {
-            color: #4CAF50;
-            margin-top: 0;
-            font-size: 1.4em;
-            font-weight: 700; /* 确保项目 H3 标题加粗 */
-        }
-        .project-item ul {
-            list-style-type: disc; /* 替换自定义图标为传统圆点 */
-            padding-left: 20px;
-        }
-        .project-item li {
-            margin-bottom: 5px;
-        }
-        .project-item a {
-            font-weight: 700;
-        }
-        footer {
-            padding: 20px;
-            margin-top: 20px;
-            color: #ffffff;
-            background-color: #333;
-            text-align: center;
-            font-size: 0.9em;
-        }
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                width: 95%;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Li Yue – Software Developer & AI/ML Engineer. Portfolio showcasing federated learning and intelligent search projects." />
+  <meta name="author" content="Li Yue" />
+  <title>Li Yue | Portfolio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #2a6496;
+      --secondary: #4CAF50;
+      --bg: #eef1f5;
+      --card-bg: #ffffff;
+      --text: #333333;
+      --muted: #666666;
+      --accent: #77aaff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      line-height: 1.6;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px 0;
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      background: linear-gradient(135deg, #2a6496, #3b82c4);
+      color: #ffffff;
+      padding: 50px 0 30px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.6rem;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.1rem;
+      opacity: 0.9;
+      font-weight: 500;
+    }
+
+    /* ---------- Navigation ---------- */
+    nav {
+      margin-top: 20px;
+    }
+
+    nav a {
+      margin: 0 12px;
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---------- Section ---------- */
+    section {
+      background: var(--card-bg);
+      padding: 30px;
+      margin-bottom: 25px;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    section h2 {
+      margin-top: 0;
+      color: var(--primary);
+      font-weight: 700;
+      border-bottom: 3px solid var(--accent);
+      padding-bottom: 10px;
+    }
+
+    section p {
+      margin: 15px 0;
+      color: var(--text);
+    }
+
+    /* ---------- Contact ---------- */
+    .contact-info {
+      list-style: none;
+      padding: 0;
+      margin-top: 15px;
+    }
+
+    .contact-info li {
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .contact-info strong {
+      color: var(--text);
+    }
+
+    /* ---------- Skills ---------- */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .skill-tag {
+      background-color: #e6f0fb;
+      color: var(--primary);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* ---------- Projects ---------- */
+    .project-item {
+      border-left: 6px solid var(--secondary);
+      padding: 20px 20px 20px 25px;
+      margin-bottom: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+    }
+
+    .project-item h3 {
+      margin-top: 0;
+      color: var(--secondary);
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .project-item ul {
+      padding-left: 20px;
+    }
+
+    .project-item li {
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .project-links a {
+      margin-right: 15px;
+      font-weight: 600;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background-color: #333333;
+      color: #ffffff;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.1rem;
+      }
+
+      section {
+        padding: 22px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 8px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <h1>Li Yue</h1>
-            <p>Software Developer | AI/ML Engineer</p>
-        </div>
-    </header>
-
+  <header>
     <div class="container">
-        
-        <section id="profile">
-            <h2>About Me</h2>
-            <p>
-                I am an engineer focused on **Software Development** and **Artificial Intelligence/Machine Learning**.
-                I have practical project experience in **Federated Learning** and **Intelligent Search Systems**.
-                I am passionate about exploring emerging technologies and transforming complex data and models into efficient, usable systems.
-            </p>
-            
-            <h2>Contact Information</h2>
-            <ul class="contact-info">
-                <li>**Email:** 3483548962@qq.com</li>
-                <li>**Phone:** (+86) 180-2881-1532</li>
-                <li>**GitHub:** <a href="https://github.com/lyanchor" target="_blank">lyanchor</a> (lyanchor.github.io)</li>
-            </ul>
-        </section>
-
-        <section id="projects">
-            <h2>Key Projects</h2>
-
-            <div class="project-item">
-                <h3>avfl: Federated Learning System based on OpenPCDet and Flower</h3>
-                <p>
-                    **Introduction:** A Federated Learning system designed for **3D Point Cloud Object Detection** for autonomous driving. It aims to improve model performance across multiple organizations while preserving data privacy.
-                </p>
-                <ul>
-                    <li>**Features:** Implements **FedAvg** aggregation algorithm and **Differential Privacy (DP)** mechanism.</li>
-                    <li>**Model:** PointPillars (an efficient 3D detection model).</li>
-                    <li>**Tech Stacks:** **OpenPCDet**, **Flower** (Federated Learning framework), Python.</li>
-                    <li>**Link:** <a href="#" target="_blank">View Demo</a> | <a href="#" target="_blank">GitHub Repository</a></li>
-                </ul>
-            </div>
-
-            <div class="project-item">
-                <h3>Geniuso: Intelligent Search and Q&A System</h3>
-                <p>
-                    **Introduction:** An intelligent search platform integrating Large Language Models (LLM) and Retrieval-Augmented Generation (RAG) technology to provide accurate and context-aware answers.
-                </p>
-                <ul>
-                    <li>**Core Features:** **RAG** (Retrieval-Augmented Generation) for improved accuracy; integrated **Agents** for complex task decomposition.</li>
-                    <li>**Tech Stacks:** **LangChain** (LLM application framework), **Chroma** (Vector Database).</li>
-                    <li>**Link:** <a href="#" target="_blank">View Demo</a> | <a href="#" target="_blank">GitHub Repository</a></li>
-                </ul>
-            </div>
-            
-        </section>
-
+      <h1>Li Yue</h1>
+      <p>Software Developer · AI / Machine Learning Engineer</p>
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
+  </header>
 
-    <footer>
-        <p>Copyright &copy; 2025 Li Yue. All rights reserved.</p>
-    </footer>
+  <main class="container">
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I am an engineer focused on <strong>Software Development</strong> and
+        <strong>Artificial Intelligence / Machine Learning</strong>. I have hands-on
+        project experience in <strong>Federated Learning</strong> and
+        <strong>Intelligent Search Systems</strong>.
+      </p>
+      <p>
+        I am passionate about exploring emerging technologies and transforming
+        complex data and models into efficient, scalable, and usable systems.
+      </p>
+    </section>
+
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <div class="skills">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Machine Learning</span>
+        <span class="skill-tag">Federated Learning</span>
+        <span class="skill-tag">Deep Learning</span>
+        <span class="skill-tag">LLM</span>
+        <span class="skill-tag">RAG</span>
+        <span class="skill-tag">LangChain</span>
+        <span class="skill-tag">OpenPCDet</span>
+        <span class="skill-tag">Flower</span>
+        <span class="skill-tag">ChromaDB</span>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Key Projects</h2>
+
+      <article class="project-item">
+        <h3>AVFL – Federated Learning System for 3D Object Detection</h3>
+        <p>
+          A federated learning system for <strong>3D point cloud object detection</strong>
+          in autonomous driving scenarios. The system improves cross-organization
+          model performance while preserving data privacy.
+        </p>
+        <ul>
+          <li>Implemented <strong>FedAvg</strong> aggregation with optional <strong>Differential Privacy</strong>.</li>
+          <li>Based on the <strong>PointPillars</strong> 3D detection model.</li>
+          <li>Built using <strong>OpenPCDet</strong> and <strong>Flower</strong>.</li>
+        </ul>
+        <div class="project-links">
+          <a href="#" target="_blank" rel="noopener">GitHub Repository</a>
+        </div>
+      </article>
+
+      <article class="project-item">
+        <h3>Geniuso – Intelligent Search & Q&A System</h3>
+        <p>
+          An intelligent search and question-answering platform integrating
+          <strong>Large Language Models</strong> with
+          <strong>Retrieval-Augmented Generation (RAG)</strong> for accurate and
+          context-aware responses.
+        </p>
+        <ul>
+          <li>RAG pipeline for high-precision document-based QA.</li>
+          <li>Agent-based task decomposition for complex queries.</li>
+          <li>Powered by <strong>LangChain</strong> and <strong>Chroma</strong>.</li>
+        </ul>
+        <div class="project-links">
+          <a href="#" target="_blank" rel="noopener">GitHub Repository</a>
+        </div>
+      </article>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <ul class="contact-info">
+        <li><strong>Email:</strong> 3483548962@qq.com</li>
+        <li><strong>Phone:</strong> (+86) 180-2881-1532</li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/lyanchor" target="_blank" rel="noopener">lyanchor</a></li>
+        <li><strong>Website:</strong> <a href="https://lyanchor.github.io" target="_blank" rel="noopener">lyanchor.github.io</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Li Yue. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>
