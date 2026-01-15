@@ -1,308 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Li Yue – Software Developer & AI/ML Engineer. Portfolio showcasing federated learning and intelligent search projects." />
-  <meta name="author" content="Li Yue" />
-  <title>Li Yue | Portfolio</title>
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      --primary: #2a6496;
-      --secondary: #4CAF50;
-      --bg: #eef1f5;
-      --card-bg: #ffffff;
-      --text: #333333;
-      --muted: #666666;
-      --accent: #77aaff;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Roboto', Arial, sans-serif;
-      line-height: 1.6;
-      background-color: var(--bg);
-      color: var(--text);
-    }
-
-    a {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: auto;
-      padding: 20px 0;
-    }
-
-    /* ---------- Header ---------- */
-    header {
-      background: linear-gradient(135deg, #2a6496, #3b82c4);
-      color: #ffffff;
-      padding: 50px 0 30px;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.6rem;
-      letter-spacing: 2px;
-      font-weight: 700;
-    }
-
-    header p {
-      margin-top: 10px;
-      font-size: 1.1rem;
-      opacity: 0.9;
-      font-weight: 500;
-    }
-
-    /* ---------- Navigation ---------- */
-    nav {
-      margin-top: 20px;
-    }
-
-    nav a {
-      margin: 0 12px;
-      color: #ffffff;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    /* ---------- Section ---------- */
-    section {
-      background: var(--card-bg);
-      padding: 30px;
-      margin-bottom: 25px;
-      border-radius: 12px;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-    }
-
-    section h2 {
-      margin-top: 0;
-      color: var(--primary);
-      font-weight: 700;
-      border-bottom: 3px solid var(--accent);
-      padding-bottom: 10px;
-    }
-
-    section p {
-      margin: 15px 0;
-      color: var(--text);
-    }
-
-    /* ---------- Contact ---------- */
-    .contact-info {
-      list-style: none;
-      padding: 0;
-      margin-top: 15px;
-    }
-
-    .contact-info li {
-      margin-bottom: 8px;
-      color: var(--muted);
-    }
-
-    .contact-info strong {
-      color: var(--text);
-    }
-
-    /* ---------- Skills ---------- */
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 15px;
-    }
-
-    .skill-tag {
-      background-color: #e6f0fb;
-      color: var(--primary);
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-
-    /* ---------- Projects ---------- */
-    .project-item {
-      border-left: 6px solid var(--secondary);
-      padding: 20px 20px 20px 25px;
-      margin-bottom: 20px;
-      background-color: #f9f9f9;
-      border-radius: 8px;
-    }
-
-    .project-item h3 {
-      margin-top: 0;
-      color: var(--secondary);
-      font-size: 1.4rem;
-      font-weight: 700;
-    }
-
-    .project-item ul {
-      padding-left: 20px;
-    }
-
-    .project-item li {
-      margin-bottom: 6px;
-      color: var(--text);
-    }
-
-    .project-links a {
-      margin-right: 15px;
-      font-weight: 600;
-    }
-
-    /* ---------- Footer ---------- */
-    footer {
-      background-color: #333333;
-      color: #ffffff;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-    }
-
-    /* ---------- Responsive ---------- */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.1rem;
-      }
-
-      section {
-        padding: 22px;
-      }
-
-      nav a {
-        display: inline-block;
-        margin: 8px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIYUE | 个人主页</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="bg-brushed-metal h-screen flex overflow-hidden text-gray-200">
 
-  <header>
-    <div class="container">
-      <h1>Li Yue</h1>
-      <p>Software Developer · AI / Machine Learning Engineer</p>
-      <nav aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I am an engineer focused on <strong>Software Development</strong> and
-        <strong>Artificial Intelligence / Machine Learning</strong>. I have hands-on
-        project experience in <strong>Federated Learning</strong> and
-        <strong>Intelligent Search Systems</strong>.
-      </p>
-      <p>
-        I am passionate about exploring emerging technologies and transforming
-        complex data and models into efficient, scalable, and usable systems.
-      </p>
-    </section>
-
-    <section id="skills">
-      <h2>Technical Skills</h2>
-      <div class="skills">
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">Machine Learning</span>
-        <span class="skill-tag">Federated Learning</span>
-        <span class="skill-tag">Deep Learning</span>
-        <span class="skill-tag">LLM</span>
-        <span class="skill-tag">RAG</span>
-        <span class="skill-tag">LangChain</span>
-        <span class="skill-tag">OpenPCDet</span>
-        <span class="skill-tag">Flower</span>
-        <span class="skill-tag">ChromaDB</span>
-      </div>
-    </section>
-
-    <section id="projects">
-      <h2>Key Projects</h2>
-
-      <article class="project-item">
-        <h3>AVFL – Federated Learning System for 3D Object Detection</h3>
-        <p>
-          A federated learning system for <strong>3D point cloud object detection</strong>
-          in autonomous driving scenarios. The system improves cross-organization
-          model performance while preserving data privacy.
-        </p>
-        <ul>
-          <li>Implemented <strong>FedAvg</strong> aggregation with optional <strong>Differential Privacy</strong>.</li>
-          <li>Based on the <strong>PointPillars</strong> 3D detection model.</li>
-          <li>Built using <strong>OpenPCDet</strong> and <strong>Flower</strong>.</li>
-        </ul>
-        <div class="project-links">
-          <a href="https://github.com/LYanchor/avfl.git" target="_blank" rel="noopener">GitHub Repository</a>
+    <!-- Sidebar Component -->
+    <nav class="fixed left-0 top-0 h-full bg-[#111] border-r border-[#333] z-50 flex flex-col transition-all duration-300 w-16 hover:w-48 group shadow-2xl">
+        <!-- Logo Area -->
+        <div class="h-16 flex items-center justify-center border-b border-[#333]">
+            <i data-lucide="cpu" class="text-gray-400 group-hover:text-[#00f3ff] transition-colors duration-300"></i>
         </div>
-      </article>
 
-      <article class="project-item">
-        <h3>Geniuso – Intelligent Search & Q&A System</h3>
-        <p>
-          An intelligent search and question-answering platform integrating
-          <strong>Large Language Models</strong> with
-          <strong>Retrieval-Augmented Generation (RAG)</strong> for accurate and
-          context-aware responses.
-        </p>
-        <ul>
-          <li>RAG pipeline for high-precision document-based QA.</li>
-          <li>Agent-based task decomposition for complex queries.</li>
-          <li>Powered by <strong>LangChain</strong> and <strong>Chroma</strong>.</li>
-        </ul>
-        <div class="project-links">
-          <a href="https://github.com/LYanchor/NLP-ISE.git" target="_blank" rel="noopener">GitHub Repository</a>
+        <!-- Navigation Items -->
+        <div class="flex-1 py-6 flex flex-col gap-2">
+            
+            <a href="index.html" class="sidebar-link flex items-center h-12 px-4 text-gray-400 hover:bg-[#1a1a1a] cursor-pointer overflow-hidden">
+                <i data-lucide="user" class="min-w-[24px]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-bold tracking-wider">个人介绍</span>
+            </a>
+
+            <a href="tech.html" class="sidebar-link flex items-center h-12 px-4 text-gray-400 hover:bg-[#1a1a1a] cursor-pointer overflow-hidden">
+                <i data-lucide="code-2" class="min-w-[24px]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-bold tracking-wider">技术心得</span>
+            </a>
+
+            <a href="projects.html" class="sidebar-link flex items-center h-12 px-4 text-gray-400 hover:bg-[#1a1a1a] cursor-pointer overflow-hidden">
+                <i data-lucide="folder-kanban" class="min-w-[24px]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-bold tracking-wider">项目介绍</span>
+            </a>
+
         </div>
-      </article>
-    </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <ul class="contact-info">
-        <li><strong>Email:</strong> 3483548962@qq.com</li>
-        <li><strong>Phone:</strong> (+86) 180-2881-1532</li>
-        <li><strong>GitHub:</strong> <a href="https://github.com/lyanchor" target="_blank" rel="noopener">lyanchor</a></li>
-        <li><strong>Website:</strong> <a href="https://lyanchor.github.io" target="_blank" rel="noopener">lyanchor.github.io</a></li>
-      </ul>
-    </section>
+        <!-- Social/Footer -->
+        <div class="h-16 border-t border-[#333] flex items-center justify-center">
+            <i data-lucide="settings" class="text-gray-500 animate-spin-slow hover:text-[#00f3ff] cursor-pointer"></i>
+        </div>
+    </nav>
 
-  </main>
+    <!-- Main Content Area -->
+    <main class="flex-1 ml-16 p-8 overflow-y-auto min-h-screen relative">
+        <div class="max-w-4xl mx-auto space-y-12 pt-10">
+            
+            <!-- Hero / Nameplate -->
+            <section class="metal-plate rounded-lg p-8 transform hover:scale-[1.01] transition-transform duration-500 relative">
+                <!-- Decorative screws handled by CSS -->
+                
+                <div class="flex flex-col md:flex-row items-center gap-8 z-10 relative">
+                    <div class="w-32 h-32 rounded-full border-4 border-gray-600 shadow-inner bg-gray-800 flex items-center justify-center overflow-hidden relative">
+                        <!-- Placeholder Avatar -->
+                        <i data-lucide="bot" class="w-16 h-16 text-gray-500"></i>
+                        <div class="absolute inset-0 bg-black opacity-20"></div>
+                    </div>
+                    
+                    <div class="text-center md:text-left flex-1">
+                        <h1 class="text-5xl font-black mb-2 tracking-tighter text-white neon-blue-glow">LIYUE</h1>
+                        <p class="text-[#00f3ff] text-lg tracking-widest mb-6 font-bold uppercase">Frontend Developer // Cybernetic Artificer</p>
+                        
+                        <div class="flex gap-4 justify-center md:justify-start">
+                            <a href="https://github.com" target="_blank" class="metal-btn px-6 py-2 bg-gradient-to-b from-[#333] to-[#111] border border-gray-600 rounded shadow-lg active:shadow-inner flex items-center gap-2 hover:text-[#00f3ff] transition-colors">
+                                <i data-lucide="github" class="w-4 h-4"></i>
+                                <span>GITHUB</span>
+                            </a>
+                            <button class="metal-btn px-6 py-2 bg-gradient-to-b from-[#333] to-[#111] border border-gray-600 rounded shadow-lg active:shadow-inner hover:text-[#00f3ff] transition-colors">
+                                CONTACT_PROTOCOL
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
-  <footer>
-    <p>&copy; 2025 Li Yue. All rights reserved.</p>
-  </footer>
+                <!-- Industrial decoration lines -->
+                <div class="absolute right-4 bottom-4 text-[10px] text-gray-600 font-mono rotate-90 origin-bottom-right">
+                    SYS.ID: 884-XJ // ONLINE
+                </div>
+            </section>
 
+            <!-- Hobbies Section -->
+            <section>
+                <h2 class="text-2xl font-bold mb-8 pl-4 border-l-4 border-[#00f3ff] text-gray-300">AUDITORY_INPUTS</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Cards for Bands -->
+                    <div class="metal-plate p-6 rounded-lg flex items-center gap-6 group">
+                        <div class="metal-disc w-24 h-24 shrink-0 relative">
+                            <div class="absolute inset-0 rounded-full border border-gray-600 opacity-50"></div>
+                            <i data-lucide="music" class="text-[#bd00ff] w-8 h-8 group-hover:animate-pulse"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-[#bd00ff] neon-purple-glow">GUNS N' ROSES</h3>
+                            <p class="text-sm text-gray-500 mt-2 font-mono">Appetite for Destruction // Hard Rock Legacy</p>
+                        </div>
+                    </div>
+
+                    <div class="metal-plate p-6 rounded-lg flex items-center gap-6 group">
+                        <div class="metal-disc w-24 h-24 shrink-0 relative">
+                            <div class="absolute inset-0 rounded-full border border-gray-600 opacity-50"></div>
+                            <i data-lucide="speaker" class="text-[#00f3ff] w-8 h-8 group-hover:animate-pulse"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-[#00f3ff] neon-blue-glow">BAD OMENS</h3>
+                            <p class="text-sm text-gray-500 mt-2 font-mono">The Death of Peace of Mind // Metalcore</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Init Scripts -->
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIYUE | 项目介绍</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-brushed-metal h-screen flex overflow-hidden text-gray-200">
+
+    <!-- Sidebar Component (Identical Copy) -->
+    <nav class="fixed left-0 top-0 h-full bg-[#111] border-r border-[#333] z-50 flex flex-col transition-all duration-300 w-16 hover:w-48 group shadow-2xl">
+        <div class="h-16 flex items-center justify-center border-b border-[#333]">
+            <i data-lucide="cpu" class="text-gray-400 group-hover:text-[#00f3ff] transition-colors duration-300"></i>
+        </div>
+        <div class="flex-1 py-6 flex flex-col gap-2">
+            <a href="index.html" class="sidebar-link flex items-center h-12 px-4 text-gray-400 hover:bg-[#1a1a1a] cursor-pointer overflow-hidden">
+                <i data-lucide="user" class="min-w-[24px]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-bold tracking-wider">个人介绍</span>
+            </a>
+            <a href="tech.html" class="sidebar-link flex items-center h-12 px-4 text-gray-400 hover:bg-[#1a1a1a] cursor-pointer overflow-hidden">
+                <i data-lucide="code-2" class="min-w-[24px]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-bold tracking-wider">技术心得</span>
+            </a>
+            <a href="projects.html" class="sidebar-link flex items-center h-12 px-4 text-gray-400 hover:bg-[#1a1a1a] cursor-pointer overflow-hidden">
+                <i data-lucide="folder-kanban" class="min-w-[24px]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-bold tracking-wider">项目介绍</span>
+            </a>
+        </div>
+        <div class="h-16 border-t border-[#333] flex items-center justify-center">
+            <i data-lucide="settings" class="text-gray-500 animate-spin-slow hover:text-[#00f3ff] cursor-pointer"></i>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 ml-16 p-8 overflow-y-auto min-h-screen relative">
+        <div class="max-w-6xl mx-auto pt-10">
+            
+            <header class="mb-12 flex items-end justify-between border-b border-gray-700 pb-4">
+                <h1 class="text-3xl font-black text-white tracking-widest uppercase flex items-center gap-3">
+                    <i data-lucide="folder-git-2" class="text-[#00f3ff]"></i> PROJECT_ARCHIVE
+                </h1>
+                <div class="font-mono text-xs text-gray-500">
+                    STATUS: DEPLOYED
+                </div>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project Card 1 -->
+                <article class="metal-plate rounded-lg overflow-hidden group hover:shadow-[0_0_20px_rgba(0,243,255,0.2)] transition-shadow duration-300 flex flex-col h-full">
+                    <div class="h-40 bg-[#111] relative overflow-hidden border-b border-[#333]">
+                        <div class="absolute inset-0 bg-gradient-to-br from-gray-800 to-black opacity-50"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i data-lucide="terminal" class="w-16 h-16 text-gray-700 group-hover:text-[#00f3ff] transition-colors duration-500"></i>
+                        </div>
+                        <!-- Scanline Effect -->
+                        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSIxIiBmaWxsPSJyZ2JhKDAsIDAsIDAsIDAuMikiLz4KPC9zdmc+')] opacity-30"></div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-white group-hover:text-[#00f3ff] transition-colors">Neuro-Net Visualizer</h3>
+                            <span class="text-[10px] text-[#00f3ff] border border-[#00f3ff] px-1 rounded">V1.0</span>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-4 flex-1">
+                            A WebGL-based visualization tool for deep learning neural networks. Displays layers and activation functions in real-time 3D space.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-xs bg-[#222] text-gray-300 px-2 py-1 rounded">React</span>
+                            <span class="text-xs bg-[#222] text-gray-300 px-2 py-1 rounded">Three.js</span>
+                            <span class="text-xs bg-[#222] text-gray-300 px-2 py-1 rounded">D3</span>
+                        </div>
+
+                        <div class="mt-auto flex gap-3">
+                            <button class="metal-btn flex-1 py-2 bg-[#222] border border-[#444] text-xs font-bold hover:text-[#00f3ff] hover:border-[#00f3ff] transition-colors uppercase">
+                                Source Code
+                            </button>
+                            <button class="metal-btn flex-1 py-2 bg-[#222] border border-[#444] text-xs font-bold hover:text-[#bd00ff] hover:border-[#bd00ff] transition-colors uppercase">
+                                Live Demo
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project Card 2 -->
+                <article class="metal-plate rounded-lg overflow-hidden group hover:shadow-[0_0_20px_rgba(189,0,255,0.2)] transition-shadow duration-300 flex flex-col h-full">
+                    <div class="h-40 bg-[#111] relative overflow-hidden border-b border-[#333]">
+                        <div class="absolute inset-0 bg-gradient-to-br from-gray-800 to-black opacity-50"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i data-lucide="database" class="w-16 h-16 text-gray-700 group-hover:text-[#bd00ff] transition-colors duration-500"></i>
+                        </div>
+                         <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSIxIiBmaWxsPSJyZ2JhKDAsIDAsIDAsIDAuMikiLz4KPC9zdmc+')] opacity-30"></div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-white group-hover:text-[#bd00ff] transition-colors">Cyber-Vault</h3>
+                            <span class="text-[10px] text-[#bd00ff] border border-[#bd00ff] px-1 rounded">BETA</span>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-4 flex-1">
+                            Encrypted decentralized file storage system using IPFS. Features a CLI interface and brushed metal UI dashboard.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-xs bg-[#222] text-gray-300 px-2 py-1 rounded">Rust</span>
+                            <span class="text-xs bg-[#222] text-gray-300 px-2 py-1 rounded">Tauri</span>
+                            <span class="text-xs bg-[#222] text-gray-300 px-2 py-1 rounded">Solidity</span>
+                        </div>
+
+                        <div class="mt-auto flex gap-3">
+                            <button class="metal-btn flex-1 py-2 bg-[#222] border border-[#444] text-xs font-bold hover:text-[#00f3ff] hover:border-[#00f3ff] transition-colors uppercase">
+                                Source Code
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project Card 3: Placeholder -->
+                <article class="metal-plate rounded-lg overflow-hidden flex flex-col h-full justify-center items-center p-6 border-dashed border-2 border-[#333] opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
+                    <i data-lucide="plus-circle" class="w-12 h-12 text-gray-600 mb-4"></i>
+                    <h3 class="text-lg font-bold text-gray-500">NEW_PROJECT_ALLOCATION</h3>
+                    <p class="text-xs text-gray-600 mt-2">Click to initialize...</p>
+                </article>
+
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

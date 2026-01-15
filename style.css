@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root {
+  --bg-dark: #1a1a1a;
+  --neon-blue: #00f3ff;
+  --neon-purple: #bd00ff;
+  --metal-light: #d1d5db;
+  --metal-dark: #4b5563;
+}
+
+body {
+  font-family: 'Share Tech Mono', monospace;
+  background-color: var(--bg-dark);
+  color: #e5e7eb;
+  overflow-x: hidden;
+}
+
+/* Brushed Metal Background Effect */
+.bg-brushed-metal {
+  background-color: var(--bg-dark);
+  background-image: 
+    repeating-linear-gradient(
+      90deg, 
+      rgba(255, 255, 255, 0.03) 0px, 
+      rgba(255, 255, 255, 0.03) 1px, 
+      transparent 1px, 
+      transparent 2px
+    ),
+    radial-gradient(circle at center, #2a2a2a, #111111);
+}
+
+/* "Armor Plate" Component Style */
+.metal-plate {
+  background: linear-gradient(135deg, #2d3136 0%, #1a1a1a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    inset 1px 1px 1px rgba(255, 255, 255, 0.15),
+    inset -1px -1px 1px rgba(0, 0, 0, 0.5),
+    4px 4px 10px rgba(0, 0, 0, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Screw/Rivet details in corners */
+.metal-plate::before, .metal-plate::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #555, #111);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+  top: 8px;
+}
+.metal-plate::before { left: 8px; }
+.metal-plate::after { right: 8px; }
+
+/* Neon Glows */
+.neon-blue-glow {
+  text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue);
+}
+
+.neon-border-active {
+  border-color: var(--neon-blue);
+  box-shadow: 
+    inset 0 0 10px rgba(0, 243, 255, 0.2),
+    0 0 10px rgba(0, 243, 255, 0.3);
+}
+
+/* Sidebar Specifics */
+.sidebar-link {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.sidebar-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--neon-blue);
+  box-shadow: 0 0 8px var(--neon-blue);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-link.active::before,
+.sidebar-link:hover::before {
+  opacity: 1;
+}
+
+.sidebar-link.active {
+  background: linear-gradient(90deg, rgba(0, 243, 255, 0.1), transparent);
+  color: var(--neon-blue);
+}
+
+.sidebar-link:hover .link-text {
+  color: var(--neon-blue);
+  text-shadow: 0 0 4px var(--neon-blue);
+}
+
+/* Metal Button Click Effect */
+.metal-btn:active {
+  box-shadow: 
+    inset 2px 2px 5px rgba(0,0,0,0.8),
+    inset -1px -1px 2px rgba(255,255,255,0.1);
+  transform: translateY(1px);
+}
+
+/* Timeline Mercury Tube */
+.mercury-tube {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #444, #888, #444);
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+  z-index: 0;
+}
+.mercury-tube::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 1px;
+  right: 1px;
+  bottom: 0;
+  background: rgba(0, 243, 255, 0.4);
+  filter: blur(2px);
+}
+
+/* Disc Styles */
+.metal-disc {
+  background: radial-gradient(circle at center, #2d3136 0%, #000 100%);
+  background-image: repeating-radial-gradient(
+    #333 0, 
+    #333 1px, 
+    transparent 2px, 
+    transparent 4px
+  );
+  box-shadow: 
+    0 0 0 2px #444,
+    0 0 15px rgba(0,0,0,0.8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+.metal-disc:hover {
+  transform: scale(1.05) rotate(5deg);
+  box-shadow: 0 0 20px var(--neon-purple);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-blue);
+}
