@@ -11,103 +11,100 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-brushed-metal h-screen flex overflow-hidden text-gray-200">
+<body class="h-screen flex overflow-hidden">
 
     <!-- Sidebar Component -->
-    <nav class="fixed left-0 top-0 h-full bg-[#111] border-r border-[#333] z-50 flex flex-col transition-all duration-300 w-16 hover:w-48 group shadow-2xl">
+    <nav class="sidebar fixed left-0 top-0 h-full w-20 hover:w-52 z-50 flex flex-col transition-all duration-200 group">
         <!-- Logo Area -->
-        <div class="h-16 flex items-center justify-center border-b border-[#333]">
-            <i data-lucide="cpu" class="text-gray-400 group-hover:text-[#00f3ff] transition-colors duration-300"></i>
+        <div class="h-20 flex items-center justify-center border-b-4 border-black bg-white">
+            <i data-lucide="cpu" class="text-black group-hover:text-[#D90429] transition-colors duration-200 w-8 h-8 stroke-[3]"></i>
         </div>
 
         <!-- Navigation Items -->
-        <div class="flex-1 py-6 flex flex-col gap-2">
+        <div class="flex-1 py-8 flex flex-col gap-4">
             
-            <a href="index.html" class="sidebar-link flex items-center h-12 px-4 text-gray-400 hover:bg-[#1a1a1a] cursor-pointer overflow-hidden">
-                <i data-lucide="user" class="min-w-[24px]"></i>
-                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-bold tracking-wider">个人介绍</span>
+            <a href="index.html" class="sidebar-link flex items-center h-14 px-6 overflow-hidden">
+                <i data-lucide="user" class="min-w-[24px] stroke-[3]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-lg tracking-wider">个人介绍</span>
             </a>
 
-            <a href="tech.html" class="sidebar-link flex items-center h-12 px-4 text-gray-400 hover:bg-[#1a1a1a] cursor-pointer overflow-hidden">
-                <i data-lucide="code-2" class="min-w-[24px]"></i>
-                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-bold tracking-wider">技术心得</span>
+            <a href="tech.html" class="sidebar-link flex items-center h-14 px-6 overflow-hidden">
+                <i data-lucide="code-2" class="min-w-[24px] stroke-[3]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-lg tracking-wider">技术心得</span>
             </a>
 
-            <a href="projects.html" class="sidebar-link flex items-center h-12 px-4 text-gray-400 hover:bg-[#1a1a1a] cursor-pointer overflow-hidden">
-                <i data-lucide="folder-kanban" class="min-w-[24px]"></i>
-                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-bold tracking-wider">项目介绍</span>
+            <a href="projects.html" class="sidebar-link flex items-center h-14 px-6 overflow-hidden">
+                <i data-lucide="folder-kanban" class="min-w-[24px] stroke-[3]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-lg tracking-wider">项目介绍</span>
             </a>
 
         </div>
 
         <!-- Social/Footer -->
-        <div class="h-16 border-t border-[#333] flex items-center justify-center">
-            <i data-lucide="settings" class="text-gray-500 animate-spin-slow hover:text-[#00f3ff] cursor-pointer"></i>
+        <div class="h-20 border-t-4 border-black flex items-center justify-center bg-white">
+            <i data-lucide="settings" class="text-black hover:animate-spin hover:text-[#D90429] cursor-pointer w-6 h-6 stroke-[3]"></i>
         </div>
     </nav>
 
     <!-- Main Content Area -->
-    <main class="flex-1 ml-16 p-8 overflow-y-auto min-h-screen relative">
-        <div class="max-w-4xl mx-auto space-y-12 pt-10">
+    <main class="flex-1 ml-20 p-8 overflow-y-auto min-h-screen relative bg-white">
+        <div class="max-w-4xl mx-auto space-y-16 pt-12">
             
             <!-- Hero / Nameplate -->
-            <section class="metal-plate rounded-lg p-8 transform hover:scale-[1.01] transition-transform duration-500 relative">
-                <!-- Decorative screws handled by CSS -->
-                
-                <div class="flex flex-col md:flex-row items-center gap-8 z-10 relative">
-                    <div class="w-32 h-32 rounded-full border-4 border-gray-600 shadow-inner bg-gray-800 flex items-center justify-center overflow-hidden relative">
-                        <!-- Placeholder Avatar -->
-                        <i data-lucide="bot" class="w-16 h-16 text-gray-500"></i>
-                        <div class="absolute inset-0 bg-black opacity-20"></div>
+            <section class="industrial-card p-10">
+                <div class="flex flex-col md:flex-row items-center gap-10 z-10 relative">
+                    <div class="w-32 h-32 rounded-none border-4 border-black bg-gray-100 flex items-center justify-center overflow-hidden relative shadow-[4px_4px_0_0_#999]">
+                        <i data-lucide="bot" class="w-16 h-16 text-black stroke-[2]"></i>
                     </div>
                     
                     <div class="text-center md:text-left flex-1">
-                        <h1 class="text-5xl font-black mb-2 tracking-tighter text-white neon-blue-glow">LIYUE</h1>
-                        <p class="text-[#00f3ff] text-lg tracking-widest mb-6 font-bold uppercase">Frontend Developer // Cybernetic Artificer</p>
+                        <h1 class="text-6xl font-black mb-2 tracking-tighter text-black uppercase font-sans">LIYUE</h1>
+                        <div class="h-2 w-20 bg-[#D90429] mb-4 mx-auto md:mx-0"></div>
+                        <p class="text-gray-500 text-xl tracking-widest mb-8 font-bold uppercase">Frontend Developer // Cybernetic Artificer</p>
                         
                         <div class="flex gap-4 justify-center md:justify-start">
-                            <a href="https://github.com" target="_blank" class="metal-btn px-6 py-2 bg-gradient-to-b from-[#333] to-[#111] border border-gray-600 rounded shadow-lg active:shadow-inner flex items-center gap-2 hover:text-[#00f3ff] transition-colors">
-                                <i data-lucide="github" class="w-4 h-4"></i>
+                            <a href="https://github.com" target="_blank" class="industrial-btn flex items-center gap-2">
+                                <i data-lucide="github" class="w-5 h-5"></i>
                                 <span>GITHUB</span>
                             </a>
-                            <button class="metal-btn px-6 py-2 bg-gradient-to-b from-[#333] to-[#111] border border-gray-600 rounded shadow-lg active:shadow-inner hover:text-[#00f3ff] transition-colors">
+                            <button class="industrial-btn">
                                 CONTACT_PROTOCOL
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Industrial decoration lines -->
-                <div class="absolute right-4 bottom-4 text-[10px] text-gray-600 font-mono rotate-90 origin-bottom-right">
-                    SYS.ID: 884-XJ // ONLINE
+                <!-- Industrial decoration -->
+                <div class="absolute right-4 bottom-4 text-xs font-bold text-gray-300 font-mono rotate-90 origin-bottom-right">
+                    ID: 884-XJ // ONLINE
                 </div>
             </section>
 
             <!-- Hobbies Section -->
             <section>
-                <h2 class="text-2xl font-bold mb-8 pl-4 border-l-4 border-[#00f3ff] text-gray-300">AUDITORY_INPUTS</h2>
+                <h2 class="text-4xl font-black mb-8 border-l-[10px] border-[#D90429] pl-6 text-black uppercase font-sans tracking-wide">
+                    AUDITORY_INPUTS
+                </h2>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <!-- Cards for Bands -->
-                    <div class="metal-plate p-6 rounded-lg flex items-center gap-6 group">
-                        <div class="metal-disc w-24 h-24 shrink-0 relative">
-                            <div class="absolute inset-0 rounded-full border border-gray-600 opacity-50"></div>
-                            <i data-lucide="music" class="text-[#bd00ff] w-8 h-8 group-hover:animate-pulse"></i>
+                    <div class="industrial-card-flat p-6 flex items-center gap-6 group hover:bg-black hover:text-white transition-colors cursor-pointer">
+                        <div class="w-20 h-20 border-4 border-black flex items-center justify-center bg-white group-hover:border-white">
+                            <i data-lucide="music" class="text-black w-8 h-8 group-hover:text-[#D90429] stroke-[3]"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold text-[#bd00ff] neon-purple-glow">GUNS N' ROSES</h3>
-                            <p class="text-sm text-gray-500 mt-2 font-mono">Appetite for Destruction // Hard Rock Legacy</p>
+                            <h3 class="text-2xl font-black font-sans uppercase">GUNS N' ROSES</h3>
+                            <p class="text-sm font-mono mt-1 opacity-70">Appetite for Destruction</p>
                         </div>
                     </div>
 
-                    <div class="metal-plate p-6 rounded-lg flex items-center gap-6 group">
-                        <div class="metal-disc w-24 h-24 shrink-0 relative">
-                            <div class="absolute inset-0 rounded-full border border-gray-600 opacity-50"></div>
-                            <i data-lucide="speaker" class="text-[#00f3ff] w-8 h-8 group-hover:animate-pulse"></i>
+                    <div class="industrial-card-flat p-6 flex items-center gap-6 group hover:bg-black hover:text-white transition-colors cursor-pointer">
+                        <div class="w-20 h-20 border-4 border-black flex items-center justify-center bg-white group-hover:border-white">
+                            <i data-lucide="speaker" class="text-black w-8 h-8 group-hover:text-[#D90429] stroke-[3]"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold text-[#00f3ff] neon-blue-glow">BAD OMENS</h3>
-                            <p class="text-sm text-gray-500 mt-2 font-mono">The Death of Peace of Mind // Metalcore</p>
+                            <h3 class="text-2xl font-black font-sans uppercase">BAD OMENS</h3>
+                            <p class="text-sm font-mono mt-1 opacity-70">The Death of Peace of Mind</p>
                         </div>
                     </div>
                 </div>

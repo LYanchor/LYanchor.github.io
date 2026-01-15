@@ -11,77 +11,72 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-brushed-metal h-screen flex overflow-hidden text-gray-200">
+<body class="h-screen flex overflow-hidden">
 
     <!-- Sidebar Component (Identical Copy) -->
-    <nav class="fixed left-0 top-0 h-full bg-[#111] border-r border-[#333] z-50 flex flex-col transition-all duration-300 w-16 hover:w-48 group shadow-2xl">
-        <div class="h-16 flex items-center justify-center border-b border-[#333]">
-            <i data-lucide="cpu" class="text-gray-400 group-hover:text-[#00f3ff] transition-colors duration-300"></i>
+    <nav class="sidebar fixed left-0 top-0 h-full w-20 hover:w-52 z-50 flex flex-col transition-all duration-200 group">
+        <div class="h-20 flex items-center justify-center border-b-4 border-black bg-white">
+            <i data-lucide="cpu" class="text-black group-hover:text-[#D90429] transition-colors duration-200 w-8 h-8 stroke-[3]"></i>
         </div>
-        <div class="flex-1 py-6 flex flex-col gap-2">
-            <a href="index.html" class="sidebar-link flex items-center h-12 px-4 text-gray-400 hover:bg-[#1a1a1a] cursor-pointer overflow-hidden">
-                <i data-lucide="user" class="min-w-[24px]"></i>
-                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-bold tracking-wider">个人介绍</span>
+        <div class="flex-1 py-8 flex flex-col gap-4">
+            <a href="index.html" class="sidebar-link flex items-center h-14 px-6 overflow-hidden">
+                <i data-lucide="user" class="min-w-[24px] stroke-[3]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-lg tracking-wider">个人介绍</span>
             </a>
-            <a href="tech.html" class="sidebar-link flex items-center h-12 px-4 text-gray-400 hover:bg-[#1a1a1a] cursor-pointer overflow-hidden">
-                <i data-lucide="code-2" class="min-w-[24px]"></i>
-                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-bold tracking-wider">技术心得</span>
+            <a href="tech.html" class="sidebar-link flex items-center h-14 px-6 overflow-hidden">
+                <i data-lucide="code-2" class="min-w-[24px] stroke-[3]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-lg tracking-wider">技术心得</span>
             </a>
-            <a href="projects.html" class="sidebar-link flex items-center h-12 px-4 text-gray-400 hover:bg-[#1a1a1a] cursor-pointer overflow-hidden">
-                <i data-lucide="folder-kanban" class="min-w-[24px]"></i>
-                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-bold tracking-wider">项目介绍</span>
+            <a href="projects.html" class="sidebar-link flex items-center h-14 px-6 overflow-hidden">
+                <i data-lucide="folder-kanban" class="min-w-[24px] stroke-[3]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-lg tracking-wider">项目介绍</span>
             </a>
         </div>
-        <div class="h-16 border-t border-[#333] flex items-center justify-center">
-            <i data-lucide="settings" class="text-gray-500 animate-spin-slow hover:text-[#00f3ff] cursor-pointer"></i>
+        <div class="h-20 border-t-4 border-black flex items-center justify-center bg-white">
+            <i data-lucide="settings" class="text-black hover:animate-spin hover:text-[#D90429] cursor-pointer w-6 h-6 stroke-[3]"></i>
         </div>
     </nav>
 
     <!-- Main Content Area -->
-    <main class="flex-1 ml-16 p-8 overflow-y-auto min-h-screen relative">
+    <main class="flex-1 ml-20 p-8 overflow-y-auto min-h-screen relative bg-white">
         <div class="max-w-6xl mx-auto pt-10">
             
-            <header class="mb-12 flex items-end justify-between border-b border-gray-700 pb-4">
-                <h1 class="text-3xl font-black text-white tracking-widest uppercase flex items-center gap-3">
-                    <i data-lucide="folder-git-2" class="text-[#00f3ff]"></i> PROJECT_ARCHIVE
+            <header class="mb-12 flex items-end justify-between border-b-4 border-black pb-4">
+                <h1 class="text-5xl font-black text-black tracking-widest uppercase flex items-center gap-3 font-sans">
+                    <i data-lucide="folder-git-2" class="text-[#D90429] stroke-[3]"></i> PROJECT_ARCHIVE
                 </h1>
-                <div class="font-mono text-xs text-gray-500">
+                <div class="font-mono text-xs text-black font-bold border-2 border-black px-2 py-1">
                     STATUS: DEPLOYED
                 </div>
             </header>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                 
                 <!-- Project Card 1 -->
-                <article class="metal-plate rounded-lg overflow-hidden group hover:shadow-[0_0_20px_rgba(0,243,255,0.2)] transition-shadow duration-300 flex flex-col h-full">
-                    <div class="h-40 bg-[#111] relative overflow-hidden border-b border-[#333]">
-                        <div class="absolute inset-0 bg-gradient-to-br from-gray-800 to-black opacity-50"></div>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i data-lucide="terminal" class="w-16 h-16 text-gray-700 group-hover:text-[#00f3ff] transition-colors duration-500"></i>
-                        </div>
-                        <!-- Scanline Effect -->
-                        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSIxIiBmaWxsPSJyZ2JhKDAsIDAsIDAsIDAuMikiLz4KPC9zdmc+')] opacity-30"></div>
+                <article class="industrial-card overflow-hidden group flex flex-col h-full">
+                    <div class="h-48 bg-gray-100 relative overflow-hidden border-b-4 border-black flex items-center justify-center">
+                        <i data-lucide="terminal" class="w-20 h-20 text-black stroke-[1.5]"></i>
                     </div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-lg font-bold text-white group-hover:text-[#00f3ff] transition-colors">Neuro-Net Visualizer</h3>
-                            <span class="text-[10px] text-[#00f3ff] border border-[#00f3ff] px-1 rounded">V1.0</span>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-2xl font-black text-black font-sans uppercase">Neuro-Net Visualizer</h3>
+                            <span class="text-xs font-bold bg-black text-white px-2 py-1">V1.0</span>
                         </div>
-                        <p class="text-sm text-gray-400 mb-4 flex-1">
+                        <p class="text-sm text-gray-600 mb-6 flex-1 font-mono leading-relaxed">
                             A WebGL-based visualization tool for deep learning neural networks. Displays layers and activation functions in real-time 3D space.
                         </p>
                         
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="text-xs bg-[#222] text-gray-300 px-2 py-1 rounded">React</span>
-                            <span class="text-xs bg-[#222] text-gray-300 px-2 py-1 rounded">Three.js</span>
-                            <span class="text-xs bg-[#222] text-gray-300 px-2 py-1 rounded">D3</span>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="text-xs font-bold border-2 border-black text-black px-2 py-1 uppercase">React</span>
+                            <span class="text-xs font-bold border-2 border-black text-black px-2 py-1 uppercase">Three.js</span>
+                            <span class="text-xs font-bold border-2 border-black text-black px-2 py-1 uppercase">D3</span>
                         </div>
 
-                        <div class="mt-auto flex gap-3">
-                            <button class="metal-btn flex-1 py-2 bg-[#222] border border-[#444] text-xs font-bold hover:text-[#00f3ff] hover:border-[#00f3ff] transition-colors uppercase">
+                        <div class="mt-auto flex flex-col gap-3">
+                            <button class="industrial-btn w-full">
                                 Source Code
                             </button>
-                            <button class="metal-btn flex-1 py-2 bg-[#222] border border-[#444] text-xs font-bold hover:text-[#bd00ff] hover:border-[#bd00ff] transition-colors uppercase">
+                            <button class="industrial-btn w-full hover:bg-black hover:text-white">
                                 Live Demo
                             </button>
                         </div>
@@ -89,31 +84,27 @@
                 </article>
 
                 <!-- Project Card 2 -->
-                <article class="metal-plate rounded-lg overflow-hidden group hover:shadow-[0_0_20px_rgba(189,0,255,0.2)] transition-shadow duration-300 flex flex-col h-full">
-                    <div class="h-40 bg-[#111] relative overflow-hidden border-b border-[#333]">
-                        <div class="absolute inset-0 bg-gradient-to-br from-gray-800 to-black opacity-50"></div>
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i data-lucide="database" class="w-16 h-16 text-gray-700 group-hover:text-[#bd00ff] transition-colors duration-500"></i>
-                        </div>
-                         <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSIxIiBmaWxsPSJyZ2JhKDAsIDAsIDAsIDAuMikiLz4KPC9zdmc+')] opacity-30"></div>
+                <article class="industrial-card overflow-hidden group flex flex-col h-full">
+                    <div class="h-48 bg-gray-100 relative overflow-hidden border-b-4 border-black flex items-center justify-center">
+                        <i data-lucide="database" class="w-20 h-20 text-black stroke-[1.5]"></i>
                     </div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-lg font-bold text-white group-hover:text-[#bd00ff] transition-colors">Cyber-Vault</h3>
-                            <span class="text-[10px] text-[#bd00ff] border border-[#bd00ff] px-1 rounded">BETA</span>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-2xl font-black text-black font-sans uppercase">Cyber-Vault</h3>
+                            <span class="text-xs font-bold bg-[#D90429] text-white px-2 py-1">BETA</span>
                         </div>
-                        <p class="text-sm text-gray-400 mb-4 flex-1">
-                            Encrypted decentralized file storage system using IPFS. Features a CLI interface and brushed metal UI dashboard.
+                        <p class="text-sm text-gray-600 mb-6 flex-1 font-mono leading-relaxed">
+                            Encrypted decentralized file storage system using IPFS. Features a CLI interface and brute-force minimalist UI.
                         </p>
                         
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="text-xs bg-[#222] text-gray-300 px-2 py-1 rounded">Rust</span>
-                            <span class="text-xs bg-[#222] text-gray-300 px-2 py-1 rounded">Tauri</span>
-                            <span class="text-xs bg-[#222] text-gray-300 px-2 py-1 rounded">Solidity</span>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="text-xs font-bold border-2 border-black text-black px-2 py-1 uppercase">Rust</span>
+                            <span class="text-xs font-bold border-2 border-black text-black px-2 py-1 uppercase">Tauri</span>
+                            <span class="text-xs font-bold border-2 border-black text-black px-2 py-1 uppercase">Solidity</span>
                         </div>
 
-                        <div class="mt-auto flex gap-3">
-                            <button class="metal-btn flex-1 py-2 bg-[#222] border border-[#444] text-xs font-bold hover:text-[#00f3ff] hover:border-[#00f3ff] transition-colors uppercase">
+                        <div class="mt-auto flex flex-col gap-3">
+                            <button class="industrial-btn w-full">
                                 Source Code
                             </button>
                         </div>
@@ -121,10 +112,10 @@
                 </article>
 
                 <!-- Project Card 3: Placeholder -->
-                <article class="metal-plate rounded-lg overflow-hidden flex flex-col h-full justify-center items-center p-6 border-dashed border-2 border-[#333] opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
-                    <i data-lucide="plus-circle" class="w-12 h-12 text-gray-600 mb-4"></i>
-                    <h3 class="text-lg font-bold text-gray-500">NEW_PROJECT_ALLOCATION</h3>
-                    <p class="text-xs text-gray-600 mt-2">Click to initialize...</p>
+                <article class="border-4 border-dashed border-gray-300 rounded-none flex flex-col h-full justify-center items-center p-6 hover:border-black hover:bg-gray-50 transition-colors cursor-pointer group min-h-[400px]">
+                    <i data-lucide="plus-circle" class="w-16 h-16 text-gray-300 group-hover:text-black mb-6 stroke-[1]"></i>
+                    <h3 class="text-xl font-bold text-gray-400 group-hover:text-black uppercase">Initialize New Project</h3>
+                    <p class="text-xs text-gray-400 mt-2 font-mono group-hover:text-black">Waiting for input...</p>
                 </article>
 
             </div>

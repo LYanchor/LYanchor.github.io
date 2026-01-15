@@ -10,98 +10,88 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Custom Styles -->
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Specific overrides for left-aligned timeline */
-        .timeline-container .mercury-tube {
-            left: 10px; /* Offset to align with dots */
-            transform: none;
-        }
-    </style>
 </head>
-<body class="bg-brushed-metal h-screen flex overflow-hidden text-gray-200">
+<body class="h-screen flex overflow-hidden">
 
-    <!-- Sidebar Component (Identical Copy) -->
-    <nav class="fixed left-0 top-0 h-full bg-[#111] border-r border-[#333] z-50 flex flex-col transition-all duration-300 w-16 hover:w-48 group shadow-2xl">
-        <div class="h-16 flex items-center justify-center border-b border-[#333]">
-            <i data-lucide="cpu" class="text-gray-400 group-hover:text-[#00f3ff] transition-colors duration-300"></i>
+    <!-- Sidebar Component -->
+    <nav class="sidebar fixed left-0 top-0 h-full w-20 hover:w-52 z-50 flex flex-col transition-all duration-200 group">
+        <div class="h-20 flex items-center justify-center border-b-4 border-black bg-white">
+            <i data-lucide="cpu" class="text-black group-hover:text-[#D90429] transition-colors duration-200 w-8 h-8 stroke-[3]"></i>
         </div>
-        <div class="flex-1 py-6 flex flex-col gap-2">
-            <a href="index.html" class="sidebar-link flex items-center h-12 px-4 text-gray-400 hover:bg-[#1a1a1a] cursor-pointer overflow-hidden">
-                <i data-lucide="user" class="min-w-[24px]"></i>
-                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-bold tracking-wider">个人介绍</span>
+        <div class="flex-1 py-8 flex flex-col gap-4">
+            <a href="index.html" class="sidebar-link flex items-center h-14 px-6 overflow-hidden">
+                <i data-lucide="user" class="min-w-[24px] stroke-[3]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-lg tracking-wider">个人介绍</span>
             </a>
-            <a href="tech.html" class="sidebar-link flex items-center h-12 px-4 text-gray-400 hover:bg-[#1a1a1a] cursor-pointer overflow-hidden">
-                <i data-lucide="code-2" class="min-w-[24px]"></i>
-                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-bold tracking-wider">技术心得</span>
+            <a href="tech.html" class="sidebar-link flex items-center h-14 px-6 overflow-hidden">
+                <i data-lucide="code-2" class="min-w-[24px] stroke-[3]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-lg tracking-wider">技术心得</span>
             </a>
-            <a href="projects.html" class="sidebar-link flex items-center h-12 px-4 text-gray-400 hover:bg-[#1a1a1a] cursor-pointer overflow-hidden">
-                <i data-lucide="folder-kanban" class="min-w-[24px]"></i>
-                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-bold tracking-wider">项目介绍</span>
+            <a href="projects.html" class="sidebar-link flex items-center h-14 px-6 overflow-hidden">
+                <i data-lucide="folder-kanban" class="min-w-[24px] stroke-[3]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-lg tracking-wider">项目介绍</span>
             </a>
         </div>
-        <div class="h-16 border-t border-[#333] flex items-center justify-center">
-            <i data-lucide="settings" class="text-gray-500 animate-spin-slow hover:text-[#00f3ff] cursor-pointer"></i>
+        <div class="h-20 border-t-4 border-black flex items-center justify-center bg-white">
+            <i data-lucide="settings" class="text-black hover:animate-spin hover:text-[#D90429] cursor-pointer w-6 h-6 stroke-[3]"></i>
         </div>
     </nav>
 
     <!-- Main Content Area -->
-    <main class="flex-1 ml-16 p-8 overflow-y-auto min-h-screen relative">
+    <main class="flex-1 ml-20 p-8 overflow-y-auto min-h-screen relative bg-white">
         <div class="max-w-4xl mx-auto pt-10">
             
-            <header class="mb-12 border-b border-gray-700 pb-4 flex items-center justify-between">
+            <header class="mb-16 border-b-4 border-black pb-6 flex items-end justify-between">
                 <div>
-                    <h1 class="text-3xl font-black text-white tracking-widest uppercase">
-                        NEURAL_LOGS <span class="text-[#00f3ff] text-sm align-super">v2.0</span>
+                    <h1 class="text-6xl font-black text-black tracking-tighter uppercase font-sans">
+                        NEURAL_LOGS
                     </h1>
-                    <p class="text-gray-500 font-mono text-sm mt-1">> Accessing database...</p>
-                </div>
-                <!-- Animated decorative element -->
-                <div class="flex gap-1">
-                    <div class="h-2 w-2 bg-[#00f3ff] animate-pulse"></div>
-                    <div class="h-2 w-2 bg-[#00f3ff] opacity-50"></div>
-                    <div class="h-2 w-2 bg-[#00f3ff] opacity-25"></div>
+                    <p class="text-gray-500 font-mono text-sm mt-2 flex items-center gap-2">
+                        <span class="w-3 h-3 bg-[#D90429]"></span>
+                        SYSTEM_STATUS: RECORDING
+                    </p>
                 </div>
             </header>
 
             <div class="relative timeline-container pl-10 pb-20">
-                <!-- Glowing Tube Line -->
-                <div class="mercury-tube"></div>
+                <!-- Line -->
+                <div class="timeline-line border-l-4 border-gray-200"></div>
 
                 <!-- Timeline Item: Demo Data -->
-                <div class="relative mb-12 group">
-                    <!-- Connector Dot -->
-                    <div class="absolute -left-[35px] top-6 w-5 h-5 rounded-full border-2 border-[#111] bg-[#00f3ff] shadow-[0_0_10px_#00f3ff] z-10 transition-transform group-hover:scale-125"></div>
+                <div class="relative mb-16 group pl-8">
+                    <!-- Dot -->
+                    <div class="absolute left-[17px] top-6 timeline-dot bg-white border-4 border-black group-hover:bg-[#D90429] group-hover:border-[#D90429] transition-colors rounded-full w-5 h-5 z-20"></div>
                     
                     <!-- Content Card -->
-                    <article class="metal-plate p-6 rounded hover:border-[#00f3ff] transition-colors duration-300 group-hover:translate-x-2 transition-transform">
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="text-xs font-bold bg-[#111] text-[#00f3ff] px-2 py-1 border border-gray-700 rounded">2024-05-20</span>
-                            <span class="text-xs font-bold text-gray-500">CATEGORY: SEARCH_ALGO</span>
+                    <article class="industrial-card p-8 group-hover:border-black transition-all">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-sm font-bold bg-black text-white px-3 py-1 font-mono">2024-05-20</span>
+                            <span class="text-sm font-bold text-[#D90429] uppercase tracking-wider">CATEGORY: SEARCH_ALGO</span>
                         </div>
-                        <h2 class="text-xl font-bold text-white mb-2 group-hover:text-[#00f3ff] transition-colors">
+                        <h2 class="text-3xl font-bold text-black mb-4 font-sans leading-tight">
                             Intelligent Search Engine Report
                         </h2>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        <p class="text-gray-600 text-base leading-relaxed mb-6 font-mono">
                             Analysis of semantic vector spaces in modern information retrieval systems. Explored the integration of RAG (Retrieval-Augmented Generation) architectures with legacy indexing methods.
                         </p>
                         <div class="flex gap-2">
-                            <span class="text-[10px] text-gray-500 border border-gray-700 px-2 py-1 rounded">#NLP</span>
-                            <span class="text-[10px] text-gray-500 border border-gray-700 px-2 py-1 rounded">#Python</span>
+                            <span class="text-xs font-bold border-2 border-gray-300 text-gray-400 px-2 py-1 uppercase">#NLP</span>
+                            <span class="text-xs font-bold border-2 border-gray-300 text-gray-400 px-2 py-1 uppercase">#Python</span>
                         </div>
                     </article>
                 </div>
 
-                <!-- Timeline Item: Divider / Older -->
-                <div class="relative mb-12 opacity-50">
-                    <div class="absolute -left-[33px] top-6 w-4 h-4 rounded-full border-2 border-[#111] bg-gray-600 z-10"></div>
-                     <article class="metal-plate p-6 rounded grayscale">
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="text-xs font-bold bg-[#111] text-gray-400 px-2 py-1 border border-gray-700 rounded">2024-01-15</span>
+                <!-- Timeline Item: Older -->
+                <div class="relative mb-16 pl-8 opacity-60 hover:opacity-100 transition-opacity">
+                    <div class="absolute left-[17px] top-6 timeline-dot bg-gray-300 border-4 border-gray-400 rounded-full w-5 h-5 z-20"></div>
+                     <article class="border-l-4 border-gray-300 pl-6 py-2">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-xs font-bold text-gray-400 font-mono">2024-01-15</span>
                         </div>
-                        <h2 class="text-xl font-bold text-gray-200 mb-2">
+                        <h2 class="text-2xl font-bold text-gray-400 mb-2 font-sans">
                              Initializing Core Systems...
                         </h2>
-                        <p class="text-gray-500 text-sm">
+                        <p class="text-gray-400 text-sm font-mono">
                             System boot sequence logged. First entry in the neural archive.
                         </p>
                     </article>
