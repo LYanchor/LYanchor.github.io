@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIYUE | 文章详情</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Marked.js for Markdown Rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="h-screen flex overflow-hidden">
+
+    <!-- Sidebar Component -->
+    <nav class="sidebar fixed left-0 top-0 h-full w-20 hover:w-52 z-50 flex flex-col transition-all duration-200 group">
+        <div class="h-20 flex items-center justify-center border-b-4 border-black bg-white">
+            <i data-lucide="cpu" class="text-black group-hover:text-[#D90429] transition-colors duration-200 w-8 h-8 stroke-[3]"></i>
+        </div>
+        <div class="flex-1 py-8 flex flex-col gap-4">
+            <a href="index.html" class="sidebar-link flex items-center h-14 px-6 overflow-hidden">
+                <i data-lucide="user" class="min-w-[24px] stroke-[3]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-lg tracking-wider">个人介绍</span>
+            </a>
+            <a href="tech.html" class="sidebar-link flex items-center h-14 px-6 overflow-hidden">
+                <i data-lucide="code-2" class="min-w-[24px] stroke-[3]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-lg tracking-wider">技术心得</span>
+            </a>
+            <a href="projects.html" class="sidebar-link flex items-center h-14 px-6 overflow-hidden">
+                <i data-lucide="folder-kanban" class="min-w-[24px] stroke-[3]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-lg tracking-wider">项目介绍</span>
+            </a>
+        </div>
+        <div class="h-20 border-t-4 border-black flex items-center justify-center bg-white">
+            <i data-lucide="settings" class="text-black hover:animate-spin hover:text-[#D90429] cursor-pointer w-6 h-6 stroke-[3]"></i>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 ml-20 p-8 overflow-y-auto min-h-screen relative bg-white">
+        <div class="max-w-4xl mx-auto pt-10 pb-20">
+            
+            <!-- Navigation Back -->
+            <a href="tech.html" class="group inline-flex items-center gap-2 mb-8 text-sm font-mono text-gray-400 hover:text-black transition-colors">
+                <i data-lucide="arrow-left" class="w-4 h-4 transition-transform group-hover:-translate-x-1"></i>
+                RETURN_TO_INDEX
+            </a>
+
+            <!-- Article Rendering Container -->
+            <article class="industrial-card p-10 border-black border-4 bg-white relative">
+                <!-- Decorative Corner -->
+                <div class="absolute top-0 right-0 p-2">
+                     <i data-lucide="file-text" class="text-gray-200 w-24 h-24 stroke-[1]"></i>
+                </div>
+
+                <!-- Header Area (Populated by JS) -->
+                <header class="relative z-10 mb-10 border-b-4 border-gray-100 pb-6">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span id="post-date" class="text-sm font-bold bg-black text-white px-3 py-1 font-mono">YYYY-MM-DD</span>
+                        <span id="post-category" class="text-sm font-bold text-[#D90429] uppercase tracking-wider">CATEGORY</span>
+                    </div>
+                    <h1 id="post-title" class="text-4xl md:text-5xl font-black text-black mb-4 font-sans leading-tight">
+                        POST_TITLE
+                    </h1>
+                    <div id="post-tags" class="flex gap-2">
+                        <!-- Tags injected here -->
+                    </div>
+                </header>
+
+                <!-- Content Area -->
+                <div id="markdown-render-area" class="markdown-content text-gray-800 text-lg font-mono">
+                    <!-- Markdown rendered HTML goes here -->
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- ============================================== -->
+    <!--  USER INPUT AREA: PASTE YOUR MARKDOWN BELOW    -->
+    <!-- ============================================== -->
+    <script type="text/markdown" id="markdown-source">
+---
+title: 在这里输入标题
+date: 2026-01-15
+category: 笔记
+tags: [示例, 模板]
+---
+
+## 欢迎使用新模板
+
+这是一个新的文章模板。
+
+1. 复制这个 html 文件，重命名为新文件名（例如 `post-01.html`）
+2. 用文本编辑器打开，找到底部的 `<script type="text/markdown" id="markdown-source">` 区域
+3. 将你的 Markdown 内容粘贴在 `---` 包裹的元数据下方
+4. 保存即可
+
+### 代码示例
+
+```javascript
+console.log("Hello World");
+```
+    </script>
+    <!-- ============================================== -->
+
+    <script>
+        lucide.createIcons();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const source = document.getElementById('markdown-source').textContent;
+            
+            // 1. Simple Frontmatter Parser
+            const fmRegex = /^---\s*[\r\n]+([\s\S]*?)[\r\n]+---/;
+            const match = source.match(fmRegex);
+            
+            let meta = { title: 'Untitled Post', date: 'Thinking...', category: 'Log', tags: [] };
+            let body = source;
+
+            if (match) {
+                const rawMeta = match[1];
+                body = source.replace(match[0], '').trim();
+
+                rawMeta.split('\n').forEach(line => {
+                    const separatorIndex = line.indexOf(':');
+                    if (separatorIndex > -1) {
+                        const key = line.slice(0, separatorIndex).trim();
+                        let val = line.slice(separatorIndex + 1).trim();
+                        // Array handling [a, b]
+                        if (val.startsWith('[') && val.endsWith(']')) {
+                            val = val.slice(1, -1).split(',').map(s => s.trim());
+                        }
+                        meta[key] = val;
+                    }
+                });
+            }
+
+            // 2. Inject Meta
+            document.getElementById('post-title').textContent = meta.title;
+            document.getElementById('post-date').textContent = meta.date;
+            document.getElementById('post-category').textContent = meta.category; // Removed "CATEGORY: " prefix in label for cleaner look
+            document.getElementById('post-tags').innerHTML = Array.isArray(meta.tags) 
+                ? meta.tags.map(tag => `<span class="text-xs font-bold border-2 border-gray-300 text-gray-400 px-2 py-1 uppercase">#${tag}</span>`).join('')
+                : '';
+            
+            // 3. Render Markdown
+            // Configure marked to handle highlighting if needed, but basic is fine
+            document.getElementById('markdown-render-area').innerHTML = marked.parse(body);
+        });
+    </script>
+</body>
+</html>

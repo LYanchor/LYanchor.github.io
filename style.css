@@ -156,3 +156,77 @@ h1, h2, h3, h4, .font-sans {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-red);
 }
+
+/* Markdown Content Styles */
+.markdown-content h1, 
+.markdown-content h2, 
+.markdown-content h3 {
+    font-weight: 800;
+    color: #000;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-family: sans-serif;
+    text-transform: uppercase;
+}
+
+.markdown-content h1 { font-size: 1.8rem; border-bottom: 3px solid #000; padding-bottom: 0.5rem; }
+.markdown-content h2 { font-size: 1.4rem; }
+.markdown-content h3 { font-size: 1.1rem; }
+
+.markdown-content p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.markdown-content ul, 
+.markdown-content ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+
+.markdown-content ul { list-style-type: square; }
+.markdown-content ol { list-style-type: decimal; }
+
+.markdown-content li {
+    margin-bottom: 0.5rem;
+}
+
+.markdown-content pre {
+    background: #f0f0f0;
+    border: 2px solid #000;
+    padding: 1rem;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+}
+
+.markdown-content code {
+    font-family: 'Courier New', Courier, monospace;
+    background: #e5e5e5;
+    padding: 0.2rem 0.4rem;
+    font-size: 0.9em;
+}
+
+.markdown-content pre code {
+    background: transparent;
+    padding: 0;
+}
+
+.markdown-content blockquote {
+    border-left: 4px solid var(--accent-red);
+    background: #f9f9f9;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.markdown-content a {
+    color: var(--accent-red);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+.markdown-content a:hover {
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+}
+
