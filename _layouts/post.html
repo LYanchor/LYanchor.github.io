@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | LIYUE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+</head>
+<body class="h-screen flex overflow-hidden">
+
+    <nav class="sidebar fixed left-0 top-0 h-full w-20 hover:w-52 z-50 flex flex-col transition-all duration-200 group">
+        <div class="h-20 flex items-center justify-center border-b-4 border-black bg-white">
+            <i data-lucide="cpu" class="text-black group-hover:text-[#D90429] transition-colors duration-200 w-8 h-8 stroke-[3]"></i>
+        </div>
+        <div class="flex-1 py-8 flex flex-col gap-4">
+            <a href="{{ '/index.html' | relative_url }}" class="sidebar-link flex items-center h-14 px-6 overflow-hidden">
+                <i data-lucide="user" class="min-w-[24px] stroke-[3]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-lg tracking-wider">Introduction</span>
+            </a>
+            <a href="{{ '/tech.html' | relative_url }}" class="sidebar-link active flex items-center h-14 px-6 overflow-hidden">
+                <i data-lucide="code-2" class="min-w-[24px] stroke-[3]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-lg tracking-wider">Blogs</span>
+            </a>
+            <a href="{{ '/projects.html' | relative_url }}" class="sidebar-link flex items-center h-14 px-6 overflow-hidden">
+                <i data-lucide="folder-kanban" class="min-w-[24px] stroke-[3]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-lg tracking-wider">Projects</span>
+            </a>
+        </div>
+        <div class="h-20 border-t-4 border-black flex items-center justify-center bg-white">
+            <i data-lucide="settings" class="text-black hover:animate-spin hover:text-[#D90429] cursor-pointer w-6 h-6 stroke-[3]"></i>
+        </div>
+    </nav>
+
+    <main class="flex-1 ml-20 p-8 overflow-y-auto min-h-screen relative bg-white">
+        <div class="max-w-6xl mx-auto pt-10 pb-20">
+            <a href="{{ '/tech.html' | relative_url }}" class="group inline-flex items-center gap-2 mb-8 text-sm font-mono text-gray-400 hover:text-black transition-colors">
+                <i data-lucide="arrow-left" class="w-4 h-4 transition-transform group-hover:-translate-x-1"></i>
+                RETURN_TO_INDEX
+            </a>
+
+            <article class="bg-white relative px-1 md:px-2">
+                <header class="relative z-10 mb-8">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="text-sm font-bold bg-black text-white px-3 py-1 font-mono">{{ page.date | date: '%Y-%m-%d' }}</span>
+                        {% assign postCategory = page.category %}
+                        {% if postCategory == nil or postCategory == '' %}
+                        {% assign postCategory = page.categories | join: ', ' %}
+                        {% endif %}
+                        {% if postCategory == nil or postCategory == '' %}
+                        {% assign postCategory = 'LOG' %}
+                        {% endif %}
+                        <span class="text-sm font-bold text-[#D90429] uppercase tracking-wider">{{ postCategory }}</span>
+                    </div>
+                    <h1 class="text-5xl md:text-6xl font-black text-black mb-4 font-sans leading-tight">
+                        {{ page.title }}
+                    </h1>
+                    {% if page.tags and page.tags.size > 0 %}
+                    <p class="text-xs font-mono text-gray-500 uppercase">TAGS: {{ page.tags | join: ', ' }}</p>
+                    {% endif %}
+                </header>
+
+                <div id="markdown-render-area" class="markdown-content text-gray-800 text-lg">
+                    {{ content }}
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const renderArea = document.getElementById('markdown-render-area');
+            if (!renderArea) {
+                return;
+            }
+
+            let attempts = 0;
+            function tryTypeset() {
+                if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
+                    window.MathJax.typesetClear([renderArea]);
+                    window.MathJax.typesetPromise([renderArea]).catch(() => {
+                        // Keep article readable even if math rendering fails.
+                    });
+                    return;
+                }
+
+                attempts += 1;
+                if (attempts < 20) {
+                    window.setTimeout(tryTypeset, 80);
+                }
+            }
+
+            tryTypeset();
+        });
+    </script>
+</body>
+</html>

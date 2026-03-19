@@ -1,0 +1,5 @@
+title: LIYUE
+lang: zh-CN
+markdown: kramdown
+highlighter: rouge
+permalink: /:year/:month/:day/:title.html
