@@ -278,6 +278,17 @@ h1, h2, h3, h4, .font-sans {
     text-decoration: none;
 }
 
+/* MathJax display equation alignment */
+.markdown-content mjx-container[jax="CHTML"][display="true"] {
+  display: block;
+  text-align: center !important;
+  margin: 1rem 0 !important;
+}
+
+.markdown-content mjx-container[jax="CHTML"][display="true"] mjx-math {
+  white-space: nowrap;
+}
+
 /* Floating Publish Assistant */
 .publish-assistant-shell {
   position: fixed;
