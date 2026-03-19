@@ -188,11 +188,11 @@ h1, h2, h3, h4, .font-sans {
     text-transform: uppercase;
 }
 
-.markdown-content h1 { font-size: 2.5rem;}
+.markdown-content h1 { font-size: 1.8rem;}
 .markdown-content h1 { text-transform: none; }
-.markdown-content h2 { font-size: 2rem; }
+.markdown-content h2 { font-size: 1.4rem; }
 .markdown-content h2 { text-transform: none; }
-.markdown-content h3 { font-size: 1.6rem; }
+.markdown-content h3 { font-size: 1.1rem; }
 .markdown-content h3 { text-transform: none; }
 
 .markdown-content p {
