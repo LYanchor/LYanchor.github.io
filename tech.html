@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIYUE | 技术心得</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="h-screen flex overflow-hidden">
+
+    <!-- Sidebar Component -->
+    <nav class="sidebar fixed left-0 top-0 h-full w-20 hover:w-52 z-50 flex flex-col transition-all duration-200 group">
+        <div class="h-20 flex items-center justify-center border-b-4 border-black bg-white">
+            <i data-lucide="cpu" class="text-black group-hover:text-[#D90429] transition-colors duration-200 w-8 h-8 stroke-[3]"></i>
+        </div>
+        <div class="flex-1 py-8 flex flex-col gap-4">
+            <a href="index.html" class="sidebar-link flex items-center h-14 px-6 overflow-hidden">
+                <i data-lucide="user" class="min-w-[24px] stroke-[3]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-lg tracking-wider">Introduction</span>
+            </a>
+            <a href="tech.html" class="sidebar-link flex items-center h-14 px-6 overflow-hidden">
+                <i data-lucide="code-2" class="min-w-[24px] stroke-[3]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-lg tracking-wider">Blogs</span>
+            </a>
+            <a href="projects.html" class="sidebar-link flex items-center h-14 px-6 overflow-hidden">
+                <i data-lucide="folder-kanban" class="min-w-[24px] stroke-[3]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-lg tracking-wider">Projects</span>
+            </a>
+        </div>
+        <div class="h-20 border-t-4 border-black flex items-center justify-center bg-white">
+            <i data-lucide="settings" class="text-black hover:animate-spin hover:text-[#D90429] cursor-pointer w-6 h-6 stroke-[3]"></i>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 ml-20 p-8 overflow-y-auto min-h-screen relative bg-white">
+        <div class="max-w-4xl mx-auto pt-10">
+
+            <header class="mb-16 border-b-4 border-black pb-6 flex items-end justify-between">
+                <div>
+                    <h1 class="text-6xl font-black text-black tracking-tighter uppercase font-sans">
+                        Blogs
+                    </h1>
+                    <p class="text-gray-500 font-mono text-sm mt-2 flex items-center gap-2">
+                        <span class="w-3 h-3 bg-[#D90429]"></span>
+                        POST_PIPELINE: READY
+                    </p>
+                </div>
+            </header>
+
+            <div class="relative timeline-container pl-10 pb-20">
+                <!-- Line -->
+                <div class="timeline-line border-l-4 border-gray-200"></div>
+
+                <div id="post-list" class="space-y-16">
+                    <div class="relative mb-16 group pl-8">
+                        <div class="absolute left-[17px] top-6 timeline-dot bg-white border-4 border-black transition-colors rounded-full w-5 h-5 z-20"></div>
+                        <div class="industrial-card p-8">
+                            <p class="text-sm font-mono text-gray-500">Loading posts...</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <aside id="publish-assistant" class="publish-assistant-shell publish-assistant-collapsed" aria-label="Publish Assistant">
+        <p class="publish-assistant-label">assistant</p>
+        <button id="assistant-toggle" type="button" class="publish-assistant-toggle" aria-controls="assistant-panel" aria-expanded="false" aria-label="展开发布助手">
+            <i data-lucide="chevron-up" class="w-5 h-5 stroke-[3]"></i>
+        </button>
+
+        <section id="assistant-panel" class="publish-assistant-panel industrial-card p-8" aria-hidden="true">
+            <div class="flex flex-col gap-8">
+                <div>
+                    <p class="text-sm font-mono text-gray-500 uppercase tracking-widest mb-2">Publish Assistant</p>
+                    <h2 class="text-3xl font-black font-sans uppercase">Jekyll-Style Post Workflow</h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="industrial-card-flat p-6">
+                        <h3 class="text-xl font-black font-sans uppercase mb-4">发布步骤</h3>
+                        <ol class="list-decimal pl-5 space-y-2 text-sm md:text-base font-mono text-gray-700">
+                            <li>在 <span class="font-bold text-black">notes/</span> 下新增文件，格式为 <span class="font-bold text-black">YYYY-MM-DD-slug.md</span></li>
+                            <li>在文件头部写 Front Matter（title/date/category/tags）</li>
+                            <li>把文件名加到 <span class="font-bold text-black">notes/posts.json</span></li>
+                            <li>页面会自动读取并展示，不需要手工改卡片 HTML</li>
+                        </ol>
+                    </div>
+
+                    <div class="industrial-card-flat p-6">
+                        <h3 class="text-xl font-black font-sans uppercase mb-4">模板生成器</h3>
+                        <div class="grid grid-cols-1 gap-3">
+                            <label class="text-xs font-bold uppercase tracking-wider text-gray-500">标题</label>
+                            <input id="gen-title" type="text" class="border-2 border-black px-3 py-2 font-mono text-sm" placeholder="例如：My Search Notes">
+
+                            <label class="text-xs font-bold uppercase tracking-wider text-gray-500">日期</label>
+                            <input id="gen-date" type="date" class="border-2 border-black px-3 py-2 font-mono text-sm">
+
+                            <label class="text-xs font-bold uppercase tracking-wider text-gray-500">分类</label>
+                            <input id="gen-category" type="text" class="border-2 border-black px-3 py-2 font-mono text-sm" placeholder="TECH">
+
+                            <label class="text-xs font-bold uppercase tracking-wider text-gray-500">标签（逗号分隔）</label>
+                            <input id="gen-tags" type="text" class="border-2 border-black px-3 py-2 font-mono text-sm" placeholder="search, rag, note">
+
+                            <label class="text-xs font-bold uppercase tracking-wider text-gray-500">Slug（可选）</label>
+                            <input id="gen-slug" type="text" class="border-2 border-black px-3 py-2 font-mono text-sm" placeholder="my-search-notes">
+
+                            <div class="pt-2">
+                                <p class="text-xs text-gray-500 font-mono">建议文件名</p>
+                                <p id="gen-filename" class="text-sm font-bold text-black font-mono break-all">-</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="industrial-card-flat p-6">
+                    <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+                        <h3 class="text-xl font-black font-sans uppercase">Front Matter 模板</h3>
+                        <button id="copy-template" class="industrial-btn text-xs px-4 py-2">复制模板</button>
+                    </div>
+                    <textarea id="gen-template" rows="12" class="w-full border-2 border-black p-3 font-mono text-sm resize-y bg-white" readonly></textarea>
+
+                    <div class="mt-6 flex flex-wrap items-center justify-between gap-3">
+                        <p class="text-xs text-gray-500 font-mono">追加到 posts.json 的条目</p>
+                        <button id="copy-json-item" class="industrial-btn text-xs px-4 py-2">复制 JSON 条目</button>
+                    </div>
+                    <pre id="gen-json-item" class="mt-2 bg-[#f6f6f6] border-2 border-black p-3 font-mono text-sm overflow-x-auto">{ "file": "YYYY-MM-DD-your-slug.md" }</pre>
+                </div>
+            </div>
+        </section>
+    </aside>
+
+    <script src="blog_data.js"></script>
+    <script>
+        function parseFrontMatter(markdown) {
+            const fmRegex = /^---\s*[\r\n]+([\s\S]*?)[\r\n]+---/;
+            const match = markdown.match(fmRegex);
+            const meta = {
+                title: 'Untitled Post',
+                date: 'Unknown Date',
+                category: 'LOG',
+                tags: [],
+                excerpt: ''
+            };
+            let body = markdown.trim();
+
+            if (!match) {
+                return { meta, body };
+            }
+
+            const rawMeta = match[1];
+            body = markdown.replace(match[0], '').trim();
+
+            rawMeta.split('\n').forEach((line) => {
+                const separatorIndex = line.indexOf(':');
+                if (separatorIndex < 0) {
+                    return;
+                }
+                const key = line.slice(0, separatorIndex).trim();
+                let val = line.slice(separatorIndex + 1).trim();
+
+                if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
+                    val = val.slice(1, -1);
+                }
+
+                if (val.startsWith('[') && val.endsWith(']')) {
+                    val = val.slice(1, -1).split(',').map((s) => s.trim().replace(/^['"]|['"]$/g, '')).filter(Boolean);
+                }
+
+                meta[key] = val;
+            });
+
+            return { meta, body };
+        }
+
+        function extractExcerpt(markdownBody) {
+            return '';
+        }
+
+        function slugify(value) {
+            return value
+                .toLowerCase()
+                .trim()
+                .replace(/[^a-z0-9\s-]/g, '')
+                .replace(/\s+/g, '-')
+                .replace(/-+/g, '-');
+        }
+
+        function safeText(value, fallback) {
+            if (!value || typeof value !== 'string') {
+                return fallback;
+            }
+            return value;
+        }
+
+        function buildPostItem(post) {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'relative mb-16 group pl-8';
+
+            const fileParam = encodeURIComponent(post.file);
+            const tags = Array.isArray(post.meta.tags) ? post.meta.tags.join(', ') : '';
+
+            wrapper.innerHTML = `
+                <div class="absolute left-[17px] top-6 timeline-dot bg-white border-4 border-black group-hover:bg-[#D90429] group-hover:border-[#D90429] transition-colors rounded-full w-5 h-5 z-20"></div>
+                <a href="post_template.html?file=${fileParam}" class="block industrial-card p-8 group-hover:border-black transition-all hover:translate-x-2">
+                    <div class="flex flex-wrap items-center gap-4 mb-4">
+                        <span class="text-sm font-bold bg-black text-white px-3 py-1 font-mono">${safeText(post.meta.date, 'Unknown Date')}</span>
+                        <span class="text-sm font-bold text-[#D90429] uppercase tracking-wider">CATEGORY: ${safeText(post.meta.category, 'LOG')}</span>
+                        ${tags ? `<span class="text-xs font-mono text-gray-500 uppercase">TAGS: ${tags}</span>` : ''}
+                    </div>
+                    <h2 class="text-3xl font-bold text-black mb-2 font-sans leading-tight group-hover:text-[#D90429] transition-colors">
+                        ${safeText(post.meta.title, post.file)}
+                    </h2>
+                    <div class="flex items-center text-black font-bold text-sm uppercase tracking-widest gap-2">
+                        READ_MODULE <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </div>
+                </a>
+            `;
+
+            return wrapper;
+        }
+
+        async function loadPostsFromJson() {
+            const response = await fetch('notes/posts.json');
+            if (!response.ok) {
+                throw new Error('Failed to load posts.json');
+            }
+
+            const items = await response.json();
+            const fileNames = items.map((item) => item.file).filter(Boolean);
+
+            const loadedPosts = await Promise.all(fileNames.map(async (file) => {
+                const fileResponse = await fetch(`notes/${file}`);
+                if (!fileResponse.ok) {
+                    throw new Error(`Failed to load markdown file: ${file}`);
+                }
+
+                const content = await fileResponse.text();
+                return { file, content };
+            }));
+
+            return loadedPosts;
+        }
+
+        function loadPostsFromFallbackData() {
+            if (!Array.isArray(window.BLOG_DATA)) {
+                return [];
+            }
+
+            return window.BLOG_DATA.map((item) => ({
+                file: item.filename,
+                content: item.content
+            })).filter((item) => item.file && item.content);
+        }
+
+        function sortPostsByDateDescending(posts) {
+            return posts.sort((a, b) => {
+                const dateA = Date.parse(a.meta.date || '1970-01-01');
+                const dateB = Date.parse(b.meta.date || '1970-01-01');
+                return dateB - dateA;
+            });
+        }
+
+        function renderPostList(posts) {
+            const list = document.getElementById('post-list');
+            list.innerHTML = '';
+
+            if (!posts.length) {
+                list.innerHTML = `
+                    <div class="relative mb-16 group pl-8">
+                        <div class="absolute left-[17px] top-6 timeline-dot bg-white border-4 border-black transition-colors rounded-full w-5 h-5 z-20"></div>
+                        <div class="industrial-card p-8">
+                            <h3 class="text-2xl font-black font-sans mb-3">NO POSTS FOUND</h3>
+                            <p class="text-sm font-mono text-gray-500">请先在 notes/posts.json 中登记文章文件名。</p>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+
+            posts.forEach((post) => {
+                list.appendChild(buildPostItem(post));
+            });
+
+            lucide.createIcons();
+        }
+
+        async function initPostList() {
+            let sourcePosts = [];
+
+            try {
+                sourcePosts = await loadPostsFromJson();
+            } catch (error) {
+                sourcePosts = loadPostsFromFallbackData();
+            }
+
+            const parsedPosts = sourcePosts.map((item) => {
+                const parsed = parseFrontMatter(item.content);
+                parsed.meta.excerpt = parsed.meta.excerpt || extractExcerpt(parsed.body);
+                return {
+                    file: item.file,
+                    meta: parsed.meta
+                };
+            });
+
+            const sorted = sortPostsByDateDescending(parsedPosts);
+            renderPostList(sorted);
+        }
+
+        function writeTextToClipboard(value, fallbackButtonText, buttonEl) {
+            navigator.clipboard.writeText(value).then(() => {
+                const originalText = buttonEl.textContent;
+                buttonEl.textContent = '已复制';
+                setTimeout(() => {
+                    buttonEl.textContent = originalText || fallbackButtonText;
+                }, 1200);
+            }).catch(() => {
+                const originalText = buttonEl.textContent;
+                buttonEl.textContent = '复制失败';
+                setTimeout(() => {
+                    buttonEl.textContent = originalText || fallbackButtonText;
+                }, 1200);
+            });
+        }
+
+        function initPublishAssistant() {
+            const shell = document.getElementById('publish-assistant');
+            const panel = document.getElementById('assistant-panel');
+            const toggle = document.getElementById('assistant-toggle');
+            const titleInput = document.getElementById('gen-title');
+            const dateInput = document.getElementById('gen-date');
+            const categoryInput = document.getElementById('gen-category');
+            const tagsInput = document.getElementById('gen-tags');
+            const slugInput = document.getElementById('gen-slug');
+
+            const filenameEl = document.getElementById('gen-filename');
+            const templateEl = document.getElementById('gen-template');
+            const jsonItemEl = document.getElementById('gen-json-item');
+            const copyTemplateBtn = document.getElementById('copy-template');
+            const copyJsonBtn = document.getElementById('copy-json-item');
+
+            function setAssistantExpanded(expanded) {
+                shell.classList.toggle('publish-assistant-expanded', expanded);
+                shell.classList.toggle('publish-assistant-collapsed', !expanded);
+                toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+                panel.setAttribute('aria-hidden', expanded ? 'false' : 'true');
+            }
+
+            toggle.addEventListener('click', () => {
+                const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+                setAssistantExpanded(!isExpanded);
+            });
+
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = `${today.getMonth() + 1}`.padStart(2, '0');
+            const dd = `${today.getDate()}`.padStart(2, '0');
+            dateInput.value = `${yyyy}-${mm}-${dd}`;
+
+            function rebuildTemplate() {
+                const title = titleInput.value.trim() || 'Untitled Post';
+                const date = dateInput.value || `${yyyy}-${mm}-${dd}`;
+                const category = categoryInput.value.trim() || 'TECH';
+                const tags = tagsInput.value
+                    .split(',')
+                    .map((tag) => tag.trim())
+                    .filter(Boolean);
+
+                const derivedSlug = slugify(title) || 'new-post';
+                const slug = (slugInput.value.trim() || derivedSlug).replace(/\s+/g, '-').toLowerCase();
+                const filename = `${date}-${slug}.md`;
+
+                const tagText = tags.length ? tags.join(', ') : 'note';
+
+                filenameEl.textContent = filename;
+                jsonItemEl.textContent = `{ "file": "${filename}" }`;
+                templateEl.value = `---\nlayout: post\ntitle: "${title}"\ndate: ${date}\ncategory: ${category}\ntags: [${tagText}]\nexcerpt: ""\n---\n\n## Summary\n\nWrite your article here.\n`;
+            }
+
+            [titleInput, dateInput, categoryInput, tagsInput, slugInput].forEach((inputEl) => {
+                inputEl.addEventListener('input', rebuildTemplate);
+            });
+
+            copyTemplateBtn.addEventListener('click', () => {
+                writeTextToClipboard(templateEl.value, '复制模板', copyTemplateBtn);
+            });
+
+            copyJsonBtn.addEventListener('click', () => {
+                writeTextToClipboard(jsonItemEl.textContent, '复制 JSON 条目', copyJsonBtn);
+            });
+
+            rebuildTemplate();
+            setAssistantExpanded(false);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            initPublishAssistant();
+            initPostList();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIYUE | 项目介绍</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="h-screen flex overflow-hidden">
+
+    <!-- Sidebar Component -->
+    <nav class="sidebar fixed left-0 top-0 h-full w-20 hover:w-52 z-50 flex flex-col transition-all duration-200 group">
+        <div class="h-20 flex items-center justify-center border-b-4 border-black bg-white">
+            <i data-lucide="cpu" class="text-black group-hover:text-[#D90429] transition-colors duration-200 w-8 h-8 stroke-[3]"></i>
+        </div>
+        <div class="flex-1 py-8 flex flex-col gap-4">
+            <a href="index.html" class="sidebar-link flex items-center h-14 px-6 overflow-hidden">
+                <i data-lucide="user" class="min-w-[24px] stroke-[3]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-lg tracking-wider">Introduction</span>
+            </a>
+            <a href="tech.html" class="sidebar-link flex items-center h-14 px-6 overflow-hidden">
+                <i data-lucide="code-2" class="min-w-[24px] stroke-[3]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-lg tracking-wider">Blogs</span>
+            </a>
+            <a href="projects.html" class="sidebar-link flex items-center h-14 px-6 overflow-hidden">
+                <i data-lucide="folder-kanban" class="min-w-[24px] stroke-[3]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-lg tracking-wider">Projects</span>
+            </a>
+        </div>
+        <div class="h-20 border-t-4 border-black flex items-center justify-center bg-white">
+            <i data-lucide="settings" class="text-black hover:animate-spin hover:text-[#D90429] cursor-pointer w-6 h-6 stroke-[3]"></i>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 ml-20 min-h-screen relative overflow-y-auto bg-white">
+        <div class="min-h-screen px-6 py-8 md:px-10 md:py-12">
+            <div class="max-w-6xl mx-auto">
+                <header class="mb-10 flex flex-wrap items-end justify-between gap-4">
+                    <div>
+                        <p class="text-xs font-bold tracking-[0.35em] text-gray-500 uppercase">Project Redefinition</p>
+                        <h1 class="text-6xl md:text-7xl font-black tracking-tight text-black leading-none font-sans mt-2">
+                            PROJECTS
+                        </h1>
+                    </div>
+                    <div class="border-2 border-black px-3 py-2 text-xs font-bold tracking-[0.2em] uppercase">
+                        REBOOT MODE
+                    </div>
+                </header>
+
+                <section class="industrial-card p-8 md:p-12 mb-8 relative overflow-hidden">
+                    <div class="absolute -right-12 -top-10 w-44 h-44 border-4 border-[#D90429] rotate-12"></div>
+                    <div class="absolute -left-16 -bottom-16 w-52 h-52 border-2 border-black rotate-6"></div>
+
+                    <div class="relative z-10">
+                        <div class="inline-flex items-center gap-2 border-2 border-black px-3 py-1 mb-6 bg-white">
+                            <i data-lucide="zap" class="w-4 h-4 text-[#D90429] stroke-[3]"></i>
+                            <span class="text-xs font-bold tracking-[0.2em] uppercase">Next Phase</span>
+                        </div>
+
+                        <h2 class="text-4xl md:text-6xl font-black text-black leading-[1.05] font-sans">
+                            To Be Continue...
+                        </h2>
+                    </div>
+                </section>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

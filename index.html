@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIYUE | 个人主页</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="h-screen flex overflow-hidden">
+
+    <!-- Sidebar Component -->
+    <nav class="sidebar fixed left-0 top-0 h-full w-20 hover:w-52 z-50 flex flex-col transition-all duration-200 group">
+        <!-- Logo Area -->
+        <div class="h-20 flex items-center justify-center border-b-4 border-black bg-white">
+            <i data-lucide="cpu" class="text-black group-hover:text-[#D90429] transition-colors duration-200 w-8 h-8 stroke-[3]"></i>
+        </div>
+
+        <!-- Navigation Items -->
+        <div class="flex-1 py-8 flex flex-col gap-4">
+            
+            <a href="index.html" class="sidebar-link flex items-center h-14 px-6 overflow-hidden">
+                <i data-lucide="user" class="min-w-[24px] stroke-[3]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-lg tracking-wider">Introduction</span>
+            </a>
+
+            <a href="tech.html" class="sidebar-link flex items-center h-14 px-6 overflow-hidden">
+                <i data-lucide="code-2" class="min-w-[24px] stroke-[3]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-lg tracking-wider">Blogs</span>
+            </a>
+
+            <a href="projects.html" class="sidebar-link flex items-center h-14 px-6 overflow-hidden">
+                <i data-lucide="folder-kanban" class="min-w-[24px] stroke-[3]"></i>
+                <span class="ml-4 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-lg tracking-wider">Projects</span>
+            </a>
+
+        </div>
+
+        <!-- Social/Footer -->
+        <div class="h-20 border-t-4 border-black flex items-center justify-center bg-white">
+            <i data-lucide="settings" class="text-black hover:animate-spin hover:text-[#D90429] cursor-pointer w-6 h-6 stroke-[3]"></i>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 ml-20 p-8 overflow-y-auto min-h-screen relative bg-white">
+        <div class="max-w-4xl mx-auto space-y-16 pt-12">
+            
+            <!-- Hero / Nameplate -->
+            <section class="industrial-card p-10">
+                <div class="flex flex-col md:flex-row items-center gap-10 z-10 relative">
+                    <div class="w-32 h-32 rounded-none border-4 border-black bg-gray-100 flex items-center justify-center overflow-hidden relative shadow-[4px_4px_0_0_#999]">
+                        <i data-lucide="bot" class="w-16 h-16 text-black stroke-[2]"></i>
+                    </div>
+                    
+                    <div class="text-center md:text-left flex-1">
+                        <h1 class="text-6xl font-black mb-2 tracking-tighter text-black uppercase font-sans">LIYUE</h1>
+                        <div class="h-2 w-20 bg-[#D90429] mb-4 mx-auto md:mx-0"></div>
+                        <p class="text-gray-500 text-xl tracking-widest mb-8 font-bold uppercase">Game Engine</p>
+                        
+                        <div class="flex gap-4 justify-center md:justify-start">
+                            <a href="https://github.com" target="_blank" class="industrial-btn flex items-center gap-2">
+                                <i data-lucide="github" class="w-5 h-5"></i>
+                                <span>GITHUB</span>
+                            </a>
+                            <button class="industrial-btn">
+                                CONTACT_PROTOCOL
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industrial decoration -->
+                <div class="absolute right-4 bottom-4 text-xs font-bold text-gray-300 font-mono rotate-90 origin-bottom-right">
+                    ID: 884-XJ // ONLINE
+                </div>
+            </section>
+
+            <!-- Hobbies Section -->
+            <section>
+                <h2 class="text-4xl font-black mb-8 border-l-[10px] border-[#D90429] pl-6 text-black uppercase font-sans tracking-wide">
+                    AUDITORY_INPUTS
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Cards for Bands -->
+                    <div class="industrial-card-flat p-6 flex items-center gap-6 group hover:bg-black hover:text-white transition-colors cursor-pointer">
+                        <div class="w-20 h-20 border-4 border-black flex items-center justify-center bg-white group-hover:border-white">
+                            <i data-lucide="music" class="text-black w-8 h-8 group-hover:text-[#D90429] stroke-[3]"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-black font-sans uppercase">GUNS N' ROSES</h3>
+                            <p class="text-sm font-mono mt-1 opacity-70">Appetite for Destruction</p>
+                        </div>
+                    </div>
+
+                    <div class="industrial-card-flat p-6 flex items-center gap-6 group hover:bg-black hover:text-white transition-colors cursor-pointer">
+                        <div class="w-20 h-20 border-4 border-black flex items-center justify-center bg-white group-hover:border-white">
+                            <i data-lucide="speaker" class="text-black w-8 h-8 group-hover:text-[#D90429] stroke-[3]"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-black font-sans uppercase">BAD OMENS</h3>
+                            <p class="text-sm font-mono mt-1 opacity-70">The Death of Peace of Mind</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Init Scripts -->
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
